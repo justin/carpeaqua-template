@@ -1,0 +1,257 @@
+//================================
+// Default Colors
+//================================
+$WHITE_COLOR: #FFFFFF;
+$BLACKISH_COLOR: #3E3E3E;
+$LIGHT_GREY_COLOR: #F1F1F1;
+$CARPEAQUA_BLUE: #4A90E2;
+
+//================================
+// Display Colors
+//================================
+$TEXT_COLOR: $BLACKISH_COLOR;
+
+//================================
+// Fonts
+//================================
+$HEADLINE_FONT: "Ideal Sans SSm A", "Ideal Sans SSm B";
+$BODY_FONT: "Mercury Text G1 A", "Mercury Text G1 B";
+$CODE_FONT: "Operator Mono SSm A", "Operator Mono SSm B";
+
+
+//================================
+// Generic Tags
+//================================
+body {
+  background-color: $WHITE_COLOR;
+  color: $TEXT_COLOR;
+  line-height: 1.6;
+  font-size: 16px;
+  font-weight: 300;
+  margin: 0;
+  padding: 0;
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
+
+p {
+  font-size: 1.125em;
+}
+
+time {
+  font-family: $HEADLINE_FONT;
+  font-style: normal;
+  font-weight: 100;
+}
+
+h1, h2, h3 {
+  font-family: $HEADLINE_FONT;
+  font-style: normal;
+  font-weight: 500;
+}
+
+h3 {
+  font-weight: 400;
+}
+
+h4, h5, h6 {
+  font-weight: 300;
+}
+
+p {
+  font-family: $BODY_FONT;
+  font-style: normal;
+  font-weight: 400;
+}
+
+b, strong {
+  font-family: $BODY_FONT;
+  font-style: normal;
+  font-weight: 700;
+}
+
+i, em {
+  font-family: $BODY_FONT;
+  font-style: italic;
+  font-weight: 400;
+}
+
+code {
+  font-family: $CODE_FONT;
+  font-style: normal;
+  font-weight: 400;
+}
+
+//================================
+// Header Stuff
+//================================
+header {
+  margin: 0;
+  width: 100%;
+  border-bottom-width: 0.5;
+  border-bottom-style: solid;
+  border-bottom-color: $LIGHT_GREY_COLOR;
+}
+
+img#logo {
+  padding-left: 12pt;
+  padding-top: 12pt;
+}
+
+//================================
+// Navigation
+//================================
+section#navigation {
+  float: right;
+
+  a {
+    color: $TEXT_COLOR;
+    text-decoration: none;
+    display: inline-block;
+    padding-right: 20pt;
+    padding-top: 12pt;
+    line-height: 2.0em;
+  }
+
+  a:hover {
+    text-decoration: underline;
+  }
+
+  nav {
+    display: inline;
+    font-size: 1.0em;
+  }
+}
+
+
+nav#menu-icon {
+  display: none;
+}
+
+//================================
+// Main Content
+//================================
+main {
+  text-align: left;
+  max-width: 775px;
+  margin: 0  auto 2em auto;
+  padding-left: 12pt;
+  padding-right: 12pt;
+}
+
+#post-title {
+  display: block;
+  text-align: left;
+  margin-bottom: 2em;
+
+  h1 {
+    line-height: 1.25em;
+    margin-bottom: -0.085em;
+  }
+
+  a {
+    text-decoration: none;
+    color: $TEXT_COLOR;
+  }
+
+  time {
+    font-size: 1.125em;
+    font-weight: 200;
+  }
+}
+
+//================================
+// Articles
+//================================
+article {
+  padding-bottom: 100px;
+
+  h2 {
+    font-size: 1.375em;
+    line-height: 1.1em;
+    margin-bottom: -0.5em;
+  }
+
+  h3 {
+    font-size: 1.375em;
+    line-height: 1.1em;
+    margin-bottom: -0.5em;
+  }
+
+  a {
+    color: $CARPEAQUA_BLUE;
+  }
+
+  pre {
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre-wrap;
+  }
+
+  code {
+    padding: 15pt;
+    font-size: 95%;
+    line-height: 140%;
+    white-space: pre-wrap;
+    background-color: $LIGHT_GREY_COLOR;
+    display: block;
+  }
+
+  section#footnotes {
+    padding-left: 20pt;
+    padding-right: 20pt;
+    font-size: 0.813em;
+  }
+}
+
+/* iPad */
+@media only screen and (min-device-width : 768px)  and (max-device-width : 1024px) {
+  body {
+    font-size: 1.125em;
+  }
+
+  h1 {
+    font-size: 2.0em;
+  }
+
+  main {
+    padding-left: 12pt;
+    padding-right: 12pt;
+  }
+
+}
+
+/* iPhone */
+@media all and (max-width: 568px) {
+  h1 {
+    font-size: 1.85em;
+  }
+
+  section#navigation {
+    nav#navigation-list {
+      display: none;
+    }
+
+    nav#navigation-list.expanded {
+      display: block;
+      padding-bottom: 12pt;
+    }
+
+    nav#navigation-list.expanded a {
+      background-color: $LIGHT_GREY_COLOR;
+      text-align: center;
+      padding: 5pt;
+    }
+  }
+
+  nav#menu-icon {
+    display: block;
+    float: right;
+    margin-right: 10pt;
+    margin-top: 10pt;
+    background: url("/images/meatball.svg") no-repeat top left;
+    width: 8pt;
+    height: 30pt;
+    cursor: pointer;
+  }
+}
