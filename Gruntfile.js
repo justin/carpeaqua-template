@@ -25,7 +25,7 @@ module.exports = function(grunt) {
                     style: 'expanded',
                 },
                 files: {
-                    'assets/css/build/style.css': 'assets/css/style.scss'
+                    'assets/css/build/main.css': 'assets/css/main.scss'
                 }
             }
         },
@@ -113,7 +113,7 @@ module.exports = function(grunt) {
             },
             staging: {
                  options: {
-                    dest: "~/Projects/carpeaqua-wordpress/wordpress/wp-content/themes/carpeaqua-2016/"              
+                    dest: "~/Projects/carpeaqua-wordpress/wordpress/wp-content/themes/carpeaqua-2016/"
                 }
             },
             production: {
