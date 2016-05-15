@@ -7,13 +7,15 @@
 	<link rel="stylesheet" id="carpeaqua-typography-css" type="text/css" href="https://cloud.typography.com/7044094/6451752/css/fonts.css" />
 	<link rel="stylesheet" id="carpeaqua-bigfoot-css" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/css/main.css" />
 	<link rel="stylesheet" id="carpeaqua-bigfoot-css" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/css/bigfoot-default.css" />
+	<!--  Don't Forget Apple Touch Icon -->
+	<!--  Don't Favicon -->
 	<!--  Don't Forget OpenGraph -->
 	<!--  Don't Forget Twitter -->
 	<!--  Don't Forget Slack -->
 	<?php wp_head(); ?>
 </head>
 
-<body>
+<body <?php body_class(); ?>>
 	<header>
 		<img src="<?php echo get_stylesheet_directory_uri(); ?>/images/logo.svg" alt="carpeaqua" id="logo" />
 		<nav id="menu-icon"></nav>
