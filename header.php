@@ -9,6 +9,7 @@
 	<link rel="stylesheet" id="carpeaqua-bigfoot-css" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/main.css" />
 	<link rel="stylesheet" id="carpeaqua-bigfoot-css" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/bigfoot-default.css" />
 	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/favicon.svg">
+	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/favicon.png">
 	<link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/apple-touch-icon.png">
 
 	<!--  All Hail Zuck! -->
