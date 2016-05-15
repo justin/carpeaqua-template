@@ -4,9 +4,13 @@
 	<meta charset="<?php bloginfo( 'charset' ); ?>">
 	<meta name="viewport" content="width=device-width, minimum-scale=1.0">
 	<link rel="canonical" href="<?php echo get_site_url(); ?>" />
+	<title><?php wp_title( '|', true, 'right' ); ?></title>
 	<link rel="stylesheet" id="carpeaqua-typography-css" type="text/css" href="https://cloud.typography.com/7044094/6451752/css/fonts.css" />
 	<link rel="stylesheet" id="carpeaqua-bigfoot-css" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/main.css" />
 	<link rel="stylesheet" id="carpeaqua-bigfoot-css" type="text/css" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/css/bigfoot-default.css" />
+	<link rel="shortcut icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/favicon.svg">
+	<link rel="apple-touch-icon" href="<?php echo get_stylesheet_directory_uri(); ?>/assets/images/apple-touch-icon.png">
+
 	<!--  Don't Forget Apple Touch Icon -->
 	<!--  Don't Favicon -->
 	<!--  Don't Forget OpenGraph -->
