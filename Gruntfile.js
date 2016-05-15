@@ -118,8 +118,8 @@ module.exports = function(grunt) {
             },
             production: {
                 options: {
-                    dest: "~/path/to/theme",
-                    host: "user@host.com"
+                    dest: "~/www/html/wp-content/themes/carpeaqua-2016",
+                    host: "justinwme@104.236.158.40"
                 }
             }
         }
