@@ -1,0 +1,24 @@
+{
+  "name": "carpeaqua-template",
+  "description": "The current carpeaqua Wordpress template",
+  "main": "",
+  "authors": [
+    "Justin Williams"
+  ],
+  "license": "MIT",
+  "homepage": "https://github.com/justin/carpeaqua-template",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "assets/js/vendor",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "bigfoot": "^2.1.4",
+    "jquery": "^2.2.3",
+    "highlight": "^9.3.0"
+  }
+}

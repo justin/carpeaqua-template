@@ -58,25 +58,15 @@ module.exports = function(grunt) {
         // uglify to concat, minify, and make source maps
         uglify: {
             plugins: {
-                options: {
-                    sourceMap: 'assets/js/plugins.js.map',
-                    sourceMappingURL: 'plugins.js.map',
-                    sourceMapPrefix: 2
-                },
                 files: {
                     'assets/js/plugins.min.js': [
-                        'assets/js/source/bigfoot.min.js',
-                        'assets/js/vendor/highlight.pack.js',
-                        'assets/js/vendor/jquery-2.2.3.min.js',
+                        'assets/js/vendor/jquery/dist/jquery.js',
+                        'assets/js/vendor/bigfoot/dist/bigfoot.js',
+                        'assets/js/vendor/highlight/src/highlight.js',
                     ]
                 }
             },
             main: {
-                options: {
-                    sourceMap: 'assets/js/main.js.map',
-                    sourceMappingURL: 'main.js.map',
-                    sourceMapPrefix: 2
-                },
                 files: {
                     'assets/js/main.min.js': [
                         'assets/js/source/main.js'
