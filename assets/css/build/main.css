@@ -167,6 +167,9 @@ article code {
   background-color: #F1F1F1;
   display: block;
 }
+article li {
+  font-size: 1.125em;
+}
 article section#footnotes {
   padding-left: 20pt;
   padding-right: 20pt;
