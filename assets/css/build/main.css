@@ -118,6 +118,7 @@ main {
   margin: 0  auto 2em auto;
   padding-left: 12pt;
   padding-right: 12pt;
+  background-color: #FFFFFF;
 }
 
 #post-title {
@@ -166,6 +167,12 @@ article code {
   white-space: pre-wrap;
   background-color: #F1F1F1;
   display: block;
+}
+article p code {
+  display: inline;
+  padding: 0pt;
+  background-color: #FFFFFF;
+  color: #4A90E2;
 }
 article li {
   font-size: 1.125em;

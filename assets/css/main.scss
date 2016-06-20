@@ -30,6 +30,7 @@ $TEXT_COLOR: $BLACKISH_COLOR;
 // Fonts
 //================================
 $HEADLINE_FONT: "Ideal Sans SSm A", "Ideal Sans SSm B";
+$FOOTER_FONT: $HEADLINE_FONT;
 $BODY_FONT: "Mercury Text G1 A", "Mercury Text G1 B";
 $CODE_FONT: "Operator Mono SSm A", "Operator Mono SSm B";
 
@@ -157,6 +158,7 @@ main {
   margin: 0  auto 2em auto;
   padding-left: 12pt;
   padding-right: 12pt;
+  background-color: $WHITE_COLOR;
 }
 
 #post-title {
@@ -215,6 +217,15 @@ article {
     white-space: pre-wrap;
     background-color: $LIGHT_GREY_COLOR;
     display: block;
+  }
+
+  p {
+    code {
+      display: inline;
+      padding: 0pt;
+      background-color: $WHITE_COLOR;
+      color: $CARPEAQUA_BLUE;
+    }
   }
 
   li {
