@@ -103,7 +103,7 @@ module.exports = function(grunt) {
             },
             staging: {
                  options: {
-                    dest: "~/Development/carpeaqua-wordpress/wordpress/wp-content/themes/carpeaqua-2016/"
+                    dest: "~/Development/carpeaqua-wordpress/wp-content/themes/carpeaqua-2016/"
                 }
             },
             production: {
