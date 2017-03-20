@@ -1,0 +1,11 @@
+{{#foreach posts}}
+<article class="{{post_class}} standard" id="post-<?php the_ID(); ?>">
+
+  <div id="post-title">
+      <h1><a href="{{url}}" rel="bookmark">{{title}}</a></h1>
+      <time datetime="{{date format="C"}}">{{date format="F jS, Y"}}</time>
+  </div>
+
+	{{content}}
+</article>
+{{/foreach}}

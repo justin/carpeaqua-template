@@ -1,7 +1,7 @@
 {
   "name": "carpeaqua-template",
-  "version": "1.0.0",
-  "description": "The current carpeaqua Wordpress template",
+  "version": "2.0.0",
+  "description": "The current carpeaqua Ghost template",
   "author": "Justin Williams",
   "license": "MIT",
   "dependencies": {},
