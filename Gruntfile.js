@@ -55,6 +55,20 @@ module.exports = function(grunt) {
             ]
         },
 
+        // Generate zip file
+        compress: {
+          main: {
+            options: {
+              archive: "~/Desktop/carpeaqua-2017.zip"
+            },
+            files: [{
+              src: [
+                './**/*'
+              ]
+            }]
+          }
+        },
+
         // uglify to concat, minify, and make source maps
         uglify: {
             plugins: {
@@ -103,13 +117,7 @@ module.exports = function(grunt) {
             },
             staging: {
                  options: {
-                    dest: "~/Development/carpeaqua-wordpress/wp-content/themes/carpeaqua-2016/"
-                }
-            },
-            production: {
-                options: {
-                    dest: "~/www/html/wp-content/themes/carpeaqua-2016",
-                    host: "justinwme@104.236.158.40"
+                    dest: "~/Downloads/Ghost-0/content/themes/carpeaqua-2017/"
                 }
             }
         }

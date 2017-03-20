@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8" />
+	<meta name="viewport" content="width=device-width, minimum-scale=1.0">
+	<link rel="canonical" href="{{@blog.url}}" />
+	<link rel="stylesheet" id="carpeaqua-typography-css" type="text/css" href="https://cloud.typography.com/7044094/6451752/css/fonts.css" />
+	<link rel="stylesheet" id="carpeaqua-bigfoot-css" type="text/css" href="{{asset "css/build/main.css"}}" />
+	<link rel="stylesheet" id="carpeaqua-bigfoot-css" type="text/css" href="{{asset "css/bigfoot-default.css"}}" />
+	<link rel="shortcut icon" href="{{asset "images/favicon.svg"}}">
+	<link rel="shortcut icon" href="{{asset "images/favicon.png"}}">
+	<link rel="apple-touch-icon" href="{{asset "images/apple-touch-icon.png"}}">
+
+	<!--  All Hail Zuck! -->
+	<meta property="og:type" content="website" />
+	<meta property="og:title" content="{{meta_title}}" />
+	{{#is "index"}}
+	<meta property="og:url" content="{{@blog.url}}" />
+	{{/is}}
+	{{#is "post"}}
+	<meta property="og:url" content="{{url}}" />
+	{{/is}}
+	<meta property="og:site_name" content="{{@blog.title}}" />
+	<meta property="og:image" content="{{asset "images/card-image.png"}}" />
+	<meta property="og:image:width" content="512" />
+	<meta property="og:image:height" content="512" />
+	<meta property="og:locale" content="en_US" />
+
+	<!-- All Hail @Jack!  -->
+	<meta name="twitter:site" content="@carpeaqua" />
+	<meta name="twitter:card" content="summary" />
+	<meta name="twitter:creator" content="@carpeaqua" />
+
+	{{ghost_head}}
+</head>
+
+<body class="{{body_class}}">
+	<header>
+		<img src="{{asset "images/logo.svg"}}" alt="carpeaqua" id="logo" />
+	</header>
+	<main>
+		{{{body}}}
+	</main>
+
+	{{ghost_foot}}
+	<script type='text/javascript' src="{{asset "js/plugins.min.js"}}"></script>
+	<script type='text/javascript' src="{{asset "js/main.min.js"}}"></script>
+	<script type="text/javascript">
+	  $.bigfoot();
+	  hljs.initHighlightingOnLoad();
+
+	</script>
+
+	</body>
+	</html>
