@@ -59,11 +59,17 @@ module.exports = function(grunt) {
         compress: {
           main: {
             options: {
-              archive: "~/Desktop/carpeaqua-2017.zip"
+              archive: "/Users/justin/Desktop/carpeaqua-2017.zip"
             },
             files: [{
               src: [
-                './**/*'
+                './assets/**/*',
+                'default.hbs',
+                'error.hbs',
+                'index.hbs',
+                'package.json',
+                './partials/**/*',
+                'post.hbs',
               ]
             }]
           }
