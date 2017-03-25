@@ -3,13 +3,8 @@ Theme Name: carpeaqua
 Theme URI: https://carpeaqua.com/
 Author: Justin Williams
 Author URI: https://carpeaqua.com/
-Description: Moo
+Description: This is my template's CSS. It is not a good excuse.
 Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
 */
 body {
   background-color: #FFFFFF;
@@ -119,6 +114,7 @@ main {
   padding-left: 12pt;
   padding-right: 12pt;
   background-color: #FFFFFF;
+  display: block;
 }
 
 #post-title {
@@ -182,6 +178,31 @@ article section#footnotes {
   padding-right: 20pt;
   font-size: 0.813em;
 }
+article hr.post-divider {
+  margin-top: 50pt;
+  margin-bottom: 50pt;
+  border: 0px none white;
+  border-top: 1px solid #E5E5E5;
+}
+article section#author-bio {
+  margin: 0 auto;
+  text-align: center;
+  max-width: 50%;
+}
+article section#author-bio img {
+  padding-bottom: 10pt;
+}
+article section#author-bio p {
+  line-height: 140%;
+  margin: 0;
+}
+article img.avatar {
+  -webkit-border-radius: 50%;
+  -moz-border-radius: 50%;
+  border-radius: 50%;
+  max-width: 96pt;
+  max-height: 96pt;
+}
 
 /* iPad */
 @media only screen and (min-device-width: 768px) and (max-device-width: 1024px) {
@@ -196,6 +217,14 @@ article section#footnotes {
   main {
     padding-left: 12pt;
     padding-right: 12pt;
+  }
+
+  article section#author-bio p {
+    font-size: 1.125em;
+  }
+  article img.avatar {
+    max-width: 75pt;
+    max-height: 75pt;
   }
 }
 /* iPhone */
@@ -215,6 +244,14 @@ article section#footnotes {
     background-color: #F1F1F1;
     text-align: center;
     padding: 5pt;
+  }
+
+  article section#author-bio p {
+    font-size: 1.0em;
+  }
+  article img.avatar {
+    max-width: 75pt;
+    max-height: 75pt;
   }
 
   nav#menu-icon {

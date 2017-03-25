@@ -3,15 +3,9 @@ Theme Name: carpeaqua
 Theme URI: https://carpeaqua.com/
 Author: Justin Williams
 Author URI: https://carpeaqua.com/
-Description: Moo
+Description: This is my template's CSS. It is not a good excuse.
 Version: 1.0
-License: GNU General Public License v2 or later
-License URI: http://www.gnu.org/licenses/gpl-2.0.html
-
-This theme, like WordPress, is licensed under the GPL.
-Use it to make something cool, have fun, and share what you've learned with others.
 */
-
 
 //================================
 // Default Colors
@@ -33,7 +27,6 @@ $HEADLINE_FONT: "Ideal Sans SSm A", "Ideal Sans SSm B";
 $FOOTER_FONT: $HEADLINE_FONT;
 $BODY_FONT: "Mercury Text G1 A", "Mercury Text G1 B";
 $CODE_FONT: "Operator Mono SSm A", "Operator Mono SSm B";
-
 
 //================================
 // Generic Tags
@@ -159,6 +152,7 @@ main {
   padding-left: 12pt;
   padding-right: 12pt;
   background-color: $WHITE_COLOR;
+  display: block;
 }
 
 #post-title {
@@ -237,6 +231,37 @@ article {
     padding-right: 20pt;
     font-size: 0.813em;
   }
+
+  hr.post-divider {
+    margin-top: 50pt;
+    margin-bottom: 50pt;
+    border:0px none white;
+    border-top:1px solid #E5E5E5;
+  }
+
+  section#author-bio {
+    margin: 0 auto;
+    text-align: center;
+
+    max-width: 50%;
+    img {
+      padding-bottom: 10pt;
+    }
+
+    p {
+      line-height: 140%;
+      margin: 0;
+    }
+  }
+
+  img.avatar {
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    border-radius: 50%;
+
+    max-width: 96pt;
+    max-height: 96pt;
+  }
 }
 
 /* iPad */
@@ -254,6 +279,18 @@ article {
     padding-right: 12pt;
   }
 
+article {
+    section#author-bio {
+      p {
+        font-size: 1.125em;
+      }
+    }
+
+    img.avatar {
+      max-width: 75pt;
+      max-height: 75pt;
+    }
+  }
 }
 
 /* iPhone */
@@ -276,6 +313,19 @@ article {
       background-color: $LIGHT_GREY_COLOR;
       text-align: center;
       padding: 5pt;
+    }
+  }
+
+  article {
+    section#author-bio {
+      p {
+        font-size: 1.0em;
+      }
+    }
+
+    img.avatar {
+      max-width: 75pt;
+      max-height: 75pt;
     }
   }
 
