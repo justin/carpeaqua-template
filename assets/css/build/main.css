@@ -164,6 +164,20 @@ article code {
   background-color: #F1F1F1;
   display: block;
 }
+article div.video-container {
+  position: relative;
+  padding-bottom: 56.25%;
+  padding-top: 30px;
+  height: 0;
+  overflow: hidden;
+}
+article div.video-container iframe, article .video-container object, article .video-container embed {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
 article p code {
   display: inline;
   padding: 0pt;
