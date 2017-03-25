@@ -4,9 +4,11 @@
   "description": "The current carpeaqua Ghost template",
   "author": "Justin Williams",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "global": "^4.3.1"
+  },
   "devDependencies": {
-    "grunt": "~1.0.1",
+    "grunt": "^1.0.1",
     "grunt-contrib-compress": "1.4.1",
     "grunt-contrib-cssmin": "~2.0.0",
     "grunt-contrib-imagemin": "~1.0.1",
