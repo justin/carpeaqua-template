@@ -301,6 +301,43 @@ article {
     max-width: 96pt;
     max-height: 96pt;
   }
+
+  section#post-tags {
+    margin-top: 2em;
+
+    h6 {
+      font-family: $HEADLINE_FONT;
+      padding: 0;
+      margin: 0;
+    }
+
+    ul {
+      margin: 0;
+      padding: 0;
+    }
+
+    li {
+      font-family: $HEADLINE_FONT;
+      font-weight: 400;
+      font-size: 1.0em;
+      margin: 0;
+      padding: 0;
+      display: inline-block;
+      text-decoration: none;
+    }
+
+    li:after {
+      content: '/';
+      font-weight: 100;
+      margin: 0 0.5rem 0 0.8rem;
+      padding: 0;
+      color: $BLACKISH_COLOR;
+    }
+
+    li:last-child:after {
+	    content: none;
+    }
+  }
 }
 
 /* iPad */
