@@ -135,6 +135,21 @@ main {
   font-weight: 200;
 }
 
+nav.pagination {
+  max-width: 100%;
+  font-family: "Mercury Text G1 A", "Mercury Text G1 B";
+  font-style: normal;
+  font-weight: 400;
+}
+nav.pagination span.page-number {
+  padding-left: 20pt;
+  padding-right: 20pt;
+}
+nav.pagination a.older-posts,
+nav.pagination a.newer-posts {
+  color: #4A90E2;
+}
+
 article {
   padding-bottom: 100px;
 }
