@@ -1,7 +1,11 @@
 <!DOCTYPE html>
 <html>
 <head>
+	{{#if post}}
+	<title>{{@blog.title}}: {{meta_title}}</title>
+	{{else}}
 	<title>{{meta_title}}</title>
+	{{/if}}
 	<meta name="description" content="{{meta_description}}" />
 
 	<meta charset="utf-8" />
