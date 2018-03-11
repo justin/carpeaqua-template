@@ -1,0 +1,11 @@
+#!/bin/sh
+
+# script/update: Update application to run for its current checkout.
+
+set -e
+
+eval cd "$(dirname "$0")/.."
+
+eval script/bootstrap
+
+echo "==> Dependencies now up-to-date."

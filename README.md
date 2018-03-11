@@ -11,17 +11,7 @@ The current carpeaqua Ghost template. If you are looking for a good example of h
 
 Because I forget this stuff in the 8 months I go between updates.
 
-Ensure that all your `Homebrew` dependencies are installed.
-
-    brew bundle
-
-Next up, `ruby` stuff.
-
-    bundle install
-
-I use `yarn`, but you can probably get away with `npm` if you really wanted to.
-
-    yarn
+    ./script/setup
 
 So, you want to start updating the template in real time and having your changes update?
 

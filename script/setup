@@ -1,0 +1,14 @@
+#!/bin/sh
+
+# script/setup: Set up a machine for the first time after cloning this repo.
+
+set -e
+
+cd "$(dirname "$0")/.."
+
+source_dir=$( cd "$( dirname "$0" )" && pwd )
+
+# Boostrap our dependencies.
+eval script/bootstrap
+
+echo "==> You're ready to go!"

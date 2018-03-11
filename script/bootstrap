@@ -1,0 +1,19 @@
+#!/bin/sh
+
+# script/bootstrap: Set up a machine for the first time after cloning this repo.
+
+# Install Homebrew Dependencies such as Carthage.
+eval brew bundle check >/dev/null 2>&1  || {
+  echo "==> Installing Homebrew dependencies..."
+  eval brew bundle
+}
+
+# Install Ruby gem dependencies.
+eval bundle check --path vendor/gems >/dev/null 2>&1  || {
+  echo "==> Installing gem dependencies..."
+  eval bundle install --path --path .bundle --jobs=4 --retry=3 --quiet
+}
+
+# Install Yarn Dependencies
+echo "==> Bootstrapping Yarn..."
+eval yarn
