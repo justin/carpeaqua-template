@@ -69,5 +69,8 @@ typings/
 # next.js build output
 .next
 
+# min
+*.min.*
+
 # macOS
 .DS_Store
