@@ -123,7 +123,7 @@ module.exports = function(grunt) {
             },
             staging: {
                  options: {
-                    dest: "~/Projects/carpeaqua-ghost/content/themes/carpeaqua-2017/"
+                    dest: "server/content/themes/carpeaqua-2017/"
                 }
             }
         }

@@ -13,6 +13,7 @@
   "devDependencies": {
     "ghost-cli": "1.5.2",
     "grunt": "^1.0.1",
+    "grunt-cli": "1.2.0",
     "grunt-contrib-compress": "1.4.1",
     "grunt-contrib-cssmin": "~2.0.0",
     "grunt-contrib-imagemin": "~1.0.1",
@@ -25,5 +26,11 @@
   },
   "engines": {
     "yarn": ">= 1.0.0"
+  },
+  "scripts": {
+    "start": "ghost start",
+    "start": "ghost stop",
+    "deploy:staging": "grunt deploy:staging",
+    "deploy:production": "grunt deploy:production"
   }
 }
