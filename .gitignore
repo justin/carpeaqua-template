@@ -4,6 +4,7 @@
 *.css.map
 
 .bundle
+assets/css/build
 
 # Node
 # https://github.com/github/gitignore/blob/master/Node.gitignore
