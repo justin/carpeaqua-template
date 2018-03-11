@@ -7,8 +7,15 @@ set -e
 cd "$(dirname "$0")/.."
 
 source_dir=$( cd "$( dirname "$0" )" && pwd )
+bin=$(yarn bin)
 
 # Boostrap our dependencies.
 eval script/bootstrap
+
+# Set up a local development environment
+server=$source_dir/../server
+mkdir -p $server
+cd $server
+$bin/ghost install local
 
 echo "==> You're ready to go!"

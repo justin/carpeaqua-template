@@ -4,8 +4,13 @@
 
 set -e
 
+bin=$(yarn bin)
+
 eval cd "$(dirname "$0")/.."
 
 eval script/bootstrap
+
+# Set up a local development environment
+cd server && $bin/ghost update
 
 echo "==> Dependencies now up-to-date."

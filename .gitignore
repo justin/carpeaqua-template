@@ -75,3 +75,6 @@ typings/
 
 # macOS
 .DS_Store
+
+# Don't commit a local deployment.
+server
