@@ -7,7 +7,7 @@ module.exports = {
   },
   all: [
     'Gruntfile.js',
-    '<%= dirs.source %>/js/source/**/*.js'
+    '<%= dirs.source %>/js/*.js'
 
   ]
 };

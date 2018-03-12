@@ -1,12 +1,12 @@
 {{#if tags}}
   <section id="post-tags">
     <h6>Read more about. . . </h6>
-    
+
     <ul>
     {{#foreach tags}}
       <li>
-        <a href="{{url}}" title="{{name}}" class="tag tag-{{id}} {{slug}}">{{name}}</a>
-      </li>  
+        <a href="{{url}}" title="{{name}}" class="tag tag-{{comment_id}} {{slug}}">{{name}}</a>
+      </li>
     {{/foreach}}
     </ul>
   </section>

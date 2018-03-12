@@ -1,9 +1,14 @@
 {
   "name": "carpeaqua-template",
   "version": "2.1.0",
+  "config": {
+    "posts_per_page": 5
+  },
   "description": "The current carpeaqua Ghost template",
-  "author": "Justin Williams",
-  "email": "https://justinw.me/contact",
+  "author": {
+    "name": "Justin Williams",
+    "email": "UltravioletEpistemologist@maildrop.cc"
+  },
   "license": "MIT",
   "dependencies": {
     "bigfoot": "pxldot/bigfoot#^2.1.4",
@@ -16,13 +21,13 @@
     "grunt": "^1.0.1",
     "grunt-cli": "1.2.0",
     "grunt-contrib-compress": "1.4.1",
+    "grunt-contrib-copy": "1.0.0",
     "grunt-contrib-cssmin": "~2.0.0",
     "grunt-contrib-imagemin": "~1.0.1",
     "grunt-contrib-jshint": "~1.1.0",
     "grunt-contrib-sass": "~1.0.0",
     "grunt-contrib-uglify": "~2.1.0",
     "grunt-contrib-watch": "~1.0.0",
-    "grunt-rsync": "~2.0.1",
     "gscan": "1.3.0",
     "load-grunt-configs": "1.0.0",
     "load-grunt-tasks": "~3.5.2"
@@ -31,10 +36,11 @@
     "yarn": ">= 1.0.0"
   },
   "scripts": {
-    "start": "ghost stop",
-    "test": "gscan dist",
-    "watch": "grunt", 
-    "deploy:staging": "grunt deploy:staging",
-    "deploy:production": "grunt deploy:production"
+    "start": "cd server && ghost start",
+    "stop": "cd server && ghost stop",
+    "test": "gscan staging",
+    "watch": "grunt",
+    "deploy:staging": "grunt staging",
+    "deploy:production": "grunt production"
   }
 }

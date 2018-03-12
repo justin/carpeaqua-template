@@ -4,23 +4,22 @@ module.exports = function(grunt) {
     require('load-grunt-tasks')(grunt);
 
     var options = {
-        // tasks paths
-        config : {
-            src: "grunt/*.*"
-        },
-        pkg : grunt.file.readJSON('package.json'),
-        // Global variables
-        dirs : {
-            source: 'assets',
-            staging: 'server/content/themes/carpeaqua',
-            release: 'dist'
-        }
+      config : {
+        src: "grunt/*.*"
+      },
+      pkg : grunt.file.readJSON('package.json'),
+      dirs : {
+        source: 'assets',
+        staging: 'staging',
+        production: 'production'
+      }
     };
 
     // Load our tasks from the `config.src` dir.
     var configs = require( 'load-grunt-configs' )( grunt, options);
     grunt.initConfig(configs);
 
-    grunt.renameTask('rsync', 'deploy');
+    grunt.registerTask('staging', ['copy:staging']);
+    grunt.registerTask('production', ['copy:production']);
     grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'imagemin', 'watch']);
 };

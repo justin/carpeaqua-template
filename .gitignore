@@ -78,3 +78,5 @@ typings/
 
 # Don't commit a local deployment.
 server
+production
+staging

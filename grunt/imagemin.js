@@ -9,9 +9,9 @@ module.exports = {
     },
     files: [{
       expand: true,
-      cwd: '<%= dirs.source %>/images/',
-      src: ['**/*.{png,jpg,gif}'],
-      dest: '<%= dirs.source %>/images/'
+      cwd: '<%= dirs.source %>',
+      src: ['/images/**/*.{png,jpg,gif}'],
+      dest: '/images/build/'
     }]
   }
 };

@@ -3,7 +3,7 @@
 module.exports = {
   main: {
     options: {
-      archive: "/Users/justin/Desktop/carpeaqua-2017.zip"
+      archive: "<%= dirs.production %>/carpeaqua-2017.zip"
     },
     files: [{
       src: [

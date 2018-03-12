@@ -3,7 +3,7 @@
 module.exports = {
   plugins: {
     files: {
-      '<%= dirs.source %>/js/plugins.min.js': [
+      '<%= dirs.source %>/js/build/plugins.min.js': [
         'node_modules/jquery/dist/jquery.js',
         'node_modules/bigfoot/dist/bigfoot.js',
         'node_modules/highlight/src/highlight.js',
@@ -12,8 +12,8 @@ module.exports = {
   },
   main: {
     files: {
-      '<%= dirs.source %>/js/main.min.js': [
-        'assets/js/source/main.js'
+      '<%= dirs.source %>/js/build/main.min.js': [
+        '<%= dirs.source %>/js/main.js'
       ]
     }
   }

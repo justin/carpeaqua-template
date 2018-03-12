@@ -1,11 +1,11 @@
 {{#foreach posts}}
-<article class="{{post_class}} standard" id="post-<?php the_ID(); ?>">
+<article class="{{post_class}} standard" id="post-{{comment_id}}">
 
   <div id="post-title">
       <h1><a href="{{url}}" rel="bookmark">{{title}}</a></h1>
       <time datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM Do, YYYY"}}</time>
   </div>
-  
+
 	{{content}}
   {{> "tags"}}
 </article>
