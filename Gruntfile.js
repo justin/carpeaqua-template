@@ -19,7 +19,7 @@ module.exports = function(grunt) {
     var configs = require( 'load-grunt-configs' )( grunt, options);
     grunt.initConfig(configs);
 
-    grunt.registerTask('staging', ['copy:staging']);
-    grunt.registerTask('production', ['staging', 'compress']);
+    grunt.registerTask('staging', ['clean:staging', 'copy:staging']);
+    grunt.registerTask('production', ['clean:production', 'staging', 'compress']);
     grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'imagemin', 'watch']);
 };
