@@ -9,6 +9,9 @@ cd "$(dirname "$0")/.."
 source_dir=$( cd "$( dirname "$0" )" && pwd )
 bin=$(yarn bin)
 
+mkdir -p staging
+mkdir -p production
+
 # Boostrap our dependencies.
 eval script/bootstrap
 
@@ -17,5 +20,7 @@ server=$source_dir/../server
 mkdir -p $server
 cd $server
 $bin/ghost install local
+
+ln -sf $source_dir/../staging $source_dir/../server/content/themes/carpeaqua
 
 echo "==> You're ready to go!"
