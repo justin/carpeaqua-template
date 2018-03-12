@@ -3,18 +3,15 @@
 module.exports = {
   main: {
     options: {
-      archive: "<%= dirs.production %>/carpeaqua-2017.zip"
+      archive: "<%= dirs.production %>/carpeaqua.zip"
     },
-    files: [{
-      src: [
-        './assets/**/*',
-        'default.hbs',
-        'error.hbs',
-        'index.hbs',
-        'package.json',
-        './partials/**/*',
-        'post.hbs',
-      ]
-    }]
+    files: [
+      {
+        expand: true,
+        cwd: '<%= dirs.staging %>',
+        src: ['**/*'],
+        dest: '<%= dirs.production %>'
+      }
+    ]
   }
 };

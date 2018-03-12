@@ -20,6 +20,6 @@ module.exports = function(grunt) {
     grunt.initConfig(configs);
 
     grunt.registerTask('staging', ['copy:staging']);
-    grunt.registerTask('production', ['copy:production']);
+    grunt.registerTask('production', ['staging', 'compress']);
     grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'imagemin', 'watch']);
 };
