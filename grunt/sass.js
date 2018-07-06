@@ -10,7 +10,7 @@ module.exports = {
     expand: true,
     cwd: 'assets/css',
     src: ['**/*.scss'],
-    dest: 'assets/css/build',
+    dest: 'build/css',
     ext: '.css'
   }
 };

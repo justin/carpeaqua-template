@@ -7,8 +7,8 @@ module.exports = {
   },
   minify: {
     expand: true,
-    cwd: '<%= dirs.source %>/css/build',
+    cwd: 'build/css/',
     src: ['*.css', '!*.min.css'],
-    ext: '.css'
+    dest: 'build/css/',
   }
 };

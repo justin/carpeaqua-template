@@ -1,7 +1,7 @@
 'use strict';
 
 module.exports = {
-  dist: {
+  dynamic: {
     options: {
       optimizationLevel: 7,
       progressive: true,
@@ -9,9 +9,9 @@ module.exports = {
     },
     files: [{
       expand: true,
-      cwd: '<%= dirs.source %>',
-      src: ['/images/**/*.{png,jpg,gif}'],
-      dest: '/images/build/'
+      cwd: 'assets/images/',
+      src: ['**/*.{png,jpg,gif}'],
+      dest: 'build/images/'
     }]
   }
 };
