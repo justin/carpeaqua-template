@@ -1,11 +1,9 @@
 'use strict';
 
 module.exports = function(grunt) {
-    require('load-grunt-tasks')(grunt);
-
     var options = {
       config : {
-        src: "grunt/*.*"
+        src: "grunt/*.js"
       },
       pkg : grunt.file.readJSON('package.json'),
       dirs : {
@@ -16,8 +14,10 @@ module.exports = function(grunt) {
     };
 
     // Load our tasks from the `config.src` dir.
-    var configs = require( 'load-grunt-configs' )( grunt, options);
+    var configs = require( 'load-grunt-configs' )(grunt, options);
     grunt.initConfig(configs);
+
+    require('load-grunt-tasks')(grunt);
 
     grunt.registerTask('staging', ['clean:staging', 'copy:staging']);
     grunt.registerTask('production', ['clean:production', 'staging', 'compress']);

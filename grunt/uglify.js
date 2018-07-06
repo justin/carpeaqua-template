@@ -4,9 +4,9 @@ module.exports = {
   plugins: {
     files: {
       '<%= dirs.source %>/js/build/plugins.min.js': [
-        'node_modules/jquery/dist/jquery.js',
-        'node_modules/bigfoot/dist/bigfoot.js',
-        'node_modules/highlight/src/highlight.js',
+        '<%= dirs.source %>/../node_modules/jquery/dist/jquery.js',
+        '<%= dirs.source %>/../node_modules/bigfoot/dist/bigfoot.js',
+        '<%= dirs.source %>/../node_modules/highlight/src/highlight.js',
       ]
     }
   },

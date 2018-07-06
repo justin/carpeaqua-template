@@ -4,7 +4,7 @@ module.exports = {
   options: {
     cwd: '<%= dirs.source %>'
   },
-  sass: {
+  css: {
     files: ['css/**/*.{scss,sass}'],
     tasks: ['sass', 'cssmin']
   },

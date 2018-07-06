@@ -2,9 +2,15 @@
 
 module.exports = {
   options: {
+    sourcemap: 'none',
     style: 'expanded',
+    bundleExec: true
   },
   files: {
-    '<%= dirs.source %>/css/build/main.css': '<%= dirs.source %>/css/main.scss'
+    expand: true,
+    cwd: 'assets/css',
+    src: ['**/*.scss'],
+    dest: 'assets/css/build',
+    ext: '.css'
   }
 };
