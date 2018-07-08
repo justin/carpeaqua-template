@@ -10,7 +10,8 @@ module.exports = {
         { cwd: '<%= dirs.source %>/fonts/', expand: true, src: ['*/**'], dest: '<%= dirs.staging %>/assets/fonts/' },
         { cwd: '<%= dirs.source %>/images/', expand: true, src: ['*.svg'], dest: '<%= dirs.staging %>/assets/images/', filter: 'isFile', flatten: true },
         { cwd: 'build', expand: true, src: ['images/**'], dest: '<%= dirs.staging %>/assets/images/', filter: 'isFile', flatten: true },
-        { cwd: 'build', expand: true, src: ['css/**/*.css*'], dest: '<%= dirs.staging %>/assets/css/', filter: 'isFile', flatten: true }
+        { cwd: 'build', expand: true, src: ['css/**/*.css*'], dest: '<%= dirs.staging %>/assets/css/', filter: 'isFile', flatten: true },
+        { cwd: 'node_modules/prismjs/themes', expand: true, src: ['prism-tomorrow.css'], dest: '<%= dirs.staging %>/assets/css/', filter: 'isFile', flatten: true }
     ]
   },
   production: {
@@ -23,7 +24,8 @@ module.exports = {
         { cwd: '<%= dirs.source %>/fonts/', expand: true, src: ['*/**'], dest: '<%= dirs.production %>/assets/fonts/' },
         { cwd: 'build', expand: true, src: ['images/**'], dest: '<%= dirs.production %>/assets/images/', filter: 'isFile', flatten: true },
         { cwd: '<%= dirs.source %>/images/', expand: true, src: ['*.svg'], dest: '<%= dirs.production %>/assets/images/', filter: 'isFile', flatten: true },
-        { cwd: 'build', expand: true, src: ['css/**/*.css*'], dest: '<%= dirs.production %>/assets/css/', filter: 'isFile', flatten: true }
+        { cwd: 'build', expand: true, src: ['css/**/*.css*'], dest: '<%= dirs.production %>/assets/css/', filter: 'isFile', flatten: true },
+        { cwd: 'node_modules/prismjs/themes', expand: true, src: ['prism-tomorrow.css'], dest: '<%= dirs.staging %>/assets/css/', filter: 'isFile', flatten: true }
     ]
   }
 };

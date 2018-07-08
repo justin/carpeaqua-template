@@ -12,7 +12,8 @@
   "license": "MIT",
   "dependencies": {
     "bigfoot": "pxldot/bigfoot#^2.1.4",
-    "jquery": "jquery/jquery-dist#^3.0.0"
+    "jquery": "jquery/jquery-dist#^3.0.0",
+    "prismjs": "1.15.0"
   },
   "devDependencies": {
     "grunt": "^1.0.1",
