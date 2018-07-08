@@ -1859,8 +1859,8 @@ hooker@^0.2.3, hooker@~0.2.3:
   resolved "https://registry.yarnpkg.com/hooker/-/hooker-0.2.3.tgz#b834f723cc4a242aa65963459df6d984c5d3d959"
 
 hosted-git-info@^2.1.4:
-  version "2.6.1"
-  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.6.1.tgz#6e4cee78b01bb849dcf93527708c69fdbee410df"
+  version "2.7.1"
+  resolved "https://registry.yarnpkg.com/hosted-git-info/-/hosted-git-info-2.7.1.tgz#97f236977bd6e125408930ff6de3eec6281ec047"
 
 htmlparser2@3.8.x:
   version "3.8.3"
