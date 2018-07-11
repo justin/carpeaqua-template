@@ -225,7 +225,7 @@ article {
     white-space: pre-wrap;
   }
 
-  code:not([class*="language-"]) {
+  code:not([class*="language-"]):not(p>code) {
     padding: 15pt;
     font-size: 95%;
     line-height: 140%;
