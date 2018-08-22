@@ -1,6 +1,12 @@
 {
   "name": "carpeaqua",
-  "version": "2.1.0",
+  "version": "2.1.1",
+  "keywords": [
+    "ghost-theme"
+  ],
+  "engines": {
+    "ghost": "^1.0.0"
+  },
   "config": {
     "posts_per_page": 5
   },
@@ -17,7 +23,7 @@
   },
   "devDependencies": {
     "grunt": "^1.0.1",
-    "grunt-cli": "1.2.0",
+    "grunt-cli": "1.3.1",
     "grunt-contrib-clean": "1.1.0",
     "grunt-contrib-compress": "1.4.3",
     "grunt-contrib-copy": "1.0.0",
@@ -27,7 +33,7 @@
     "grunt-contrib-sass": "~1.0.0",
     "grunt-contrib-uglify": "~2.1.0",
     "grunt-contrib-watch": "~1.1.0",
-    "gscan": "1.5.0",
+    "gscan": "2.1.1",
     "load-grunt-configs": "1.0.0",
     "load-grunt-tasks": "~3.5.2"
   },
