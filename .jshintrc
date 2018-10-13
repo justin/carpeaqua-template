@@ -12,12 +12,12 @@
     "undef": true,
     "browser": true,
     "trailing": true,
-    "jquery": true,
+    "jquery": false,
     "curly": true,
     "supernew": true,
     "globals": {
         "Backbone": true,
         "_": true,
-        "jQuery": true
+        "jQuery": false
     }
 }

@@ -273,10 +273,10 @@ article {
     font-size: 1.125em;
   }
 
-  section#footnotes {
-    padding-left: 20pt;
-    padding-right: 20pt;
-    font-size: 0.813em;
+  section.footnotes {
+    li>p {
+      font-size: 1.0em;
+    }
   }
 
   hr.post-divider {

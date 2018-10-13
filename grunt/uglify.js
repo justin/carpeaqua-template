@@ -1,14 +1,6 @@
 'use strict';
 
 module.exports = {
-  plugins: {
-    files: {
-      'build/js/plugins.min.js': [
-        'node_modules/jquery/dist/jquery.js',
-        'node_modules/bigfoot/dist/bigfoot.js',
-      ]
-    }
-  },
   prism: {
     files: {
       'build/js/prism.min.js': [
