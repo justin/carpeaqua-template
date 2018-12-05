@@ -21,5 +21,5 @@ module.exports = function(grunt) {
 
     grunt.registerTask('staging', ['clean:staging', 'copy:staging']);
     grunt.registerTask('production', ['clean:production', 'staging', 'compress']);
-    grunt.registerTask('default', ['sass', 'cssmin', 'uglify', 'imagemin', 'watch']);
+    grunt.registerTask('default', ['dart-sass', 'cssmin', 'uglify', 'imagemin', 'watch']);
 };

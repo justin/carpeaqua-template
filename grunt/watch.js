@@ -6,7 +6,7 @@ module.exports = {
   },
   css: {
     files: ['css/**/*.{scss,sass}'],
-    tasks: ['sass', 'cssmin']
+    tasks: ['dart-sass', 'cssmin']
   },
   js: {
     files: 'js/source/**/*.js',
