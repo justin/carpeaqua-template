@@ -166,7 +166,7 @@ main {
 #post-title {
   display: block;
   text-align: left;
-  margin-bottom: 2em;
+  margin-bottom: 0;
 
   h1 {
     line-height: 1.25em;
@@ -261,6 +261,12 @@ article {
 
 
   p {
+    display: block;
+    margin-left: 0;
+    margin-right: 0;
+    margin-top: 1em;
+    margin-bottom: 1em;
+
     code {
       display: inline;
       padding: 0pt;
