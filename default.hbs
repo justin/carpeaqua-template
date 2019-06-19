@@ -2,7 +2,7 @@
 <html>
 <head>
 	{{#if post}}
-	<title>{{@blog.title}}: {{meta_title}}</title>
+	<title>{{@site.title}}: {{meta_title}}</title>
 	{{else}}
 	<title>{{meta_title}}</title>
 	{{/if}}
@@ -23,7 +23,7 @@
 
 <body class="{{body_class}}">
 	<header>
-		<a href="{{@blog.url}}" title="carpeaqua home"><img src="{{@blog.logo}}" alt="carpeaqua" id="logo" /></a>
+		<a href="{{@site.url}}" title="carpeaqua home"><img src="{{@site.logo}}" alt="carpeaqua" id="logo" /></a>
 	</header>
 	<main>
 		{{{body}}}
@@ -32,7 +32,7 @@
 	{{ghost_foot}}
   <script type='text/javascript' src="{{asset "js/prism.min.js"}}"></script>
   <script type='text/javascript' src="{{asset "js/main.min.js"}}"></script>
-  
+
 	{{!-- iTunes Affiliates --}}
 	<script type='text/javascript'>var _merchantSettings=_merchantSettings || [];_merchantSettings.push(['AT', '11l7mT']);(function(){var autolink=document.createElement('script');autolink.type='text/javascript';autolink.async=true; autolink.src= ('https:' == document.location.protocol) ? 'https://autolinkmaker.itunes.apple.com/js/itunes_autolinkmaker.js' : 'http://autolinkmaker.itunes.apple.com/js/itunes_autolinkmaker.js';var s=document.getElementsByTagName('script')[0];s.parentNode.insertBefore(autolink, s);})();</script>
 	</body>

@@ -185,6 +185,22 @@ main {
 }
 
 //================================
+// Gallery Support
+//================================
+ .kg-gallery-container {
+   display: flex;
+   flex-direction: column;
+ }
+
+.kg-gallery-row {
+  display: flex;
+}
+
+.kg-gallery-image {
+  padding: 20pt;
+}
+
+//================================
 // Pagination
 //================================
 
