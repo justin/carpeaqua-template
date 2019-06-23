@@ -11,6 +11,7 @@ Version: 1.0
 // Default Colors
 //================================
 $WHITE_COLOR: #FFFFFF;
+$BLACK_COLOR: #000000;
 $BLACKISH_COLOR: #3E3E3E;
 $LIGHT_GREY_COLOR: #F1F1F1;
 $CARPEAQUA_BLUE: #4A90E2;
@@ -19,6 +20,9 @@ $CARPEAQUA_BLUE: #4A90E2;
 // Display Colors
 //================================
 $TEXT_COLOR: $BLACKISH_COLOR;
+$DARK_TEXT_COLOR: #E6E5E6;
+$LIGHT_BACKGROUND: $WHITE_COLOR;
+$DARK_BACKGROUND: #1E1E1E;
 
 //================================
 // Fonts
@@ -32,7 +36,7 @@ $CODE_FONT: "Operator Mono SSm A", "Operator Mono SSm B";
 // Generic Tags
 //================================
 body {
-  background-color: $WHITE_COLOR;
+  background-color: $LIGHT_BACKGROUND;
   color: $TEXT_COLOR;
   line-height: 1.6;
   font-size: 16px;
@@ -159,7 +163,7 @@ main {
   margin: 0  auto 2em auto;
   padding-left: 12pt;
   padding-right: 12pt;
-  background-color: $WHITE_COLOR;
+  background-color: $LIGHT_BACKGROUND;
   display: block;
 }
 
@@ -286,7 +290,7 @@ article {
     code {
       display: inline;
       padding: 0pt;
-      background-color: $WHITE_COLOR;
+      background-color: $LIGHT_BACKGROUND;
       color: $CARPEAQUA_BLUE;
     }
   }
@@ -304,7 +308,7 @@ article {
   hr.post-divider {
     margin-top: 50pt;
     margin-bottom: 50pt;
-    border:0px none white;
+    border:0px none $WHITE_COLOR;
     border-top:1px solid #E5E5E5;
   }
 
@@ -445,4 +449,49 @@ article {
     height: 30pt;
     cursor: pointer;
   }
+}
+
+//================================
+// Dark Mode Support
+//================================
+:root {
+    color-scheme: light dark;
+    supported-color-schemes: light dark;
+}
+
+@media (prefers-color-scheme: dark) {
+    body {
+      color: $DARK_TEXT_COLOR;
+      background-color: $DARK_BACKGROUND;
+    }
+
+    main {
+      background-color: $DARK_BACKGROUND;
+    }
+
+    #post-title {
+      a {
+        color: $DARK_TEXT_COLOR;
+      }
+    }
+
+    header {
+      border-bottom-color: $CARPEAQUA_BLUE;
+    }
+
+    code {
+      background-color: $DARK_BACKGROUND;
+    }
+
+    article {
+      p {
+        code {
+          background-color: $DARK_BACKGROUND;
+        }
+      }
+
+      code:not([class*="language-"]):not(p>code) {
+        background-color: $BLACKISH_COLOR;
+      }
+    }
 }
