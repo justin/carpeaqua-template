@@ -10,7 +10,8 @@
   "description": "The current carpeaqua Ghost template",
   "author": {
     "name": "Justin Williams",
-    "email": "UltravioletEpistemologist@maildrop.cc"
+    "email": "UltravioletEpistemologist@maildrop.cc",
+    "url": "https://justinw.me"
   },
   "license": "MIT",
   "dependencies": {
