@@ -2,8 +2,18 @@
   "name": "carpeaqua",
   "version": "2.1.1",
   "keywords": [
+    "ghost",
+    "theme",
     "ghost-theme"
   ],
+  "engines": {
+    "ghost": ">=2.0.0",
+    "ghost-api": "v2"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/justin/carpeaqua-template.git"
+  },
   "config": {
     "posts_per_page": 5
   },
