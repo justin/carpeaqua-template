@@ -3,7 +3,7 @@
 module.exports = {
   staging: {
     files: [
-        { expand: true, src: ['package.json', '*.hbs', 'screenshot.png'], dest: '<%= dirs.staging %>', filter: 'isFile', flatten: true },
+        { expand: true, src: ['package.json', '*.hbs', 'screenshot.png', 'robots.txt'], dest: '<%= dirs.staging %>', filter: 'isFile', flatten: true },
         { expand: true, src: ['partials/*'], expand: true, dest: '<%= dirs.staging %>' },
         { cwd: 'build', expand: true, src: ['js/*'], dest: '<%= dirs.staging %>/assets/js/', filter: 'isFile', flatten: true },
         { cwd: '<%= dirs.source %>/fonts/', expand: true, src: ['*/**'], dest: '<%= dirs.staging %>/assets/fonts/' },
