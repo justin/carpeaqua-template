@@ -6,10 +6,6 @@
     "theme",
     "ghost-theme"
   ],
-  "engines": {
-    "ghost": ">=2.0.0",
-    "ghost-api": "v2"
-  },
   "repository": {
     "type": "git",
     "url": "https://github.com/justin/carpeaqua-template.git"
@@ -28,27 +24,24 @@
     "prismjs": "1.17.1"
   },
   "devDependencies": {
-    "grunt": "^1.0.1",
-    "grunt-cli": "1.3.2",
-    "grunt-contrib-clean": "2.0.0",
-    "grunt-contrib-compress": "1.5.0",
-    "grunt-contrib-copy": "1.0.0",
-    "grunt-contrib-cssmin": "~3.0.0",
-    "grunt-contrib-imagemin": "~3.1.0",
-    "grunt-contrib-jshint": "~2.1.0",
-    "grunt-contrib-uglify": "~4.0.0",
-    "grunt-contrib-watch": "~1.1.0",
-    "grunt-dart-sass": "1.1.3",
+    "del": "5.0.0",
     "gscan": "2.7.0",
-    "load-grunt-configs": "1.0.0",
-    "load-grunt-tasks": "~5.1.0"
+    "gulp": "4.0.2",
+    "gulp-clean-css": "4.2.0",
+    "gulp-concat": "2.6.1",
+    "gulp-imagemin": "6.0.0",
+    "gulp-rename": "1.4.0",
+    "gulp-sass": "4.0.2",
+    "gulp-uglify": "3.0.2",
+    "gulp-zip": "5.0.0",
+    "node-sass": "4.12.0"
   },
   "scripts": {
     "start": "cd server && ghost start",
     "stop": "cd server && ghost stop",
-    "test": "gscan staging",
-    "watch": "grunt",
-    "deploy:staging": "grunt staging",
-    "deploy:production": "grunt production"
+    "test": "gscan build",
+    "watch": "gulp",
+    "deploy:staging": "gulp staging",
+    "deploy:production": "gulp production"
   }
 }
