@@ -37,11 +37,8 @@
     "node-sass": "4.12.0"
   },
   "scripts": {
-    "start": "cd server && ghost start",
-    "stop": "cd server && ghost stop",
-    "test": "gscan build",
-    "watch": "gulp",
-    "deploy:staging": "gulp staging",
-    "deploy:production": "gulp production"
+    "dev": "gulp",
+    "test": "gscan .",
+    "zip": "gulp production"
   }
 }
