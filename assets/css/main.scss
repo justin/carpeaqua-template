@@ -4,7 +4,7 @@ Theme URI: https://carpeaqua.com/
 Author: Justin Williams
 Author URI: https://carpeaqua.com/
 Description: This is my template's CSS. It is not a good excuse.
-Version: 1.0
+Version: 1.5
 */
 
 //================================
@@ -27,9 +27,10 @@ $DARK_BACKGROUND: #1E1E1E;
 //================================
 // Fonts
 //================================
-$HEADLINE_FONT: "Ideal Sans SSm A", "Ideal Sans SSm B";
-$FOOTER_FONT: $HEADLINE_FONT;
-$BODY_FONT: "Mercury Text G1 A", "Mercury Text G1 B";
+$HEADLINE_FONT: "Gotham SSm A", "Gotham SSm B";
+$FOOTER_FONT: "Ringside Regular SSm A", "Ringside Regular SSm B";
+$PAGINATION_FONT: $FOOTER_FONT;
+$BODY_FONT: "Archer SSm A", "Archer SSm B";
 $CODE_FONT: "Operator Mono SSm A", "Operator Mono SSm B";
 
 //================================
@@ -47,8 +48,11 @@ body {
   overflow-wrap: break-word;
 }
 
-p {
-  font-size: 1.125em;
+p, li {
+  font-family: $BODY_FONT;
+  font-size: 1em;
+  font-style: normal;
+  font-weight: 500;
 }
 
 time {
@@ -57,35 +61,53 @@ time {
   font-weight: 100;
 }
 
-h1, h2, h3 {
+h1, h2, h3, h4, h5, h6 {
   font-family: $HEADLINE_FONT;
   font-style: normal;
-  font-weight: 500;
 }
 
-h3 {
+h1, h2 {
+  font-weight: 700;
+}
+
+h3, h4 {
   font-weight: 400;
 }
 
-h4, h5, h6 {
-  font-weight: 300;
-}
-
-p {
-  font-family: $BODY_FONT;
-  font-style: normal;
-  font-weight: 400;
+h5, h6 {
+  font-weight: 200;
 }
 
 b, strong {
   font-family: $BODY_FONT;
   font-style: normal;
-  font-weight: 700;
+  font-weight: 800;
 }
 
 i, em {
   font-family: $BODY_FONT;
   font-style: italic;
+  font-weight: 500;
+}
+
+blockquote {
+  padding-left: 10px;
+  border-left: 10px #eee solid;
+  color: #999;
+  font-size: 1.1em;
+}
+
+blockquote,
+blockquote>p {
+  font-family: $HEADLINE_FONT;
+  font-style: normal;
+  font-weight: 200;
+}
+
+blockquote b,
+blockquote strong {
+  font-family: $HEADLINE_FONT;
+  font-style: normal;
   font-weight: 400;
 }
 
@@ -93,6 +115,24 @@ code {
   font-family: $CODE_FONT;
   font-style: normal;
   font-weight: 400;
+}
+
+dd {
+  font-size: 1em;
+  font-family: $BODY_FONT;
+  font-style: italic;
+  font-weight: 500;
+  padding-bottom: 1em;
+}
+
+dt {
+  font-family: $HEADLINE_FONT;
+  font-size: 0.8em;
+  font-style: normal;
+  font-weight: 200;
+  letter-spacing: 0.08em;
+  line-height: 3em;
+  text-transform: uppercase;
 }
 
 img {
@@ -160,7 +200,7 @@ nav#menu-icon {
 main {
   text-align: left;
   max-width: 775px;
-  margin: 0  auto 2em auto;
+  margin: 0 auto 2em auto;
   padding-left: 12pt;
   padding-right: 12pt;
   background-color: $LIGHT_BACKGROUND;
@@ -171,10 +211,13 @@ main {
   display: block;
   text-align: left;
   margin-bottom: 0;
+  padding-left: 10px;
+  border-left: 10px $CARPEAQUA_BLUE solid;
 
   h1 {
-    line-height: 1.25em;
-    margin-bottom: -0.085em;
+    font-size: 1.5em;
+    margin-top: 1em;
+    padding-top: 10px;
   }
 
   a {
@@ -183,8 +226,16 @@ main {
   }
 
   time {
-    font-size: 1.125em;
+    color: #999;
+    display: block;
+    font-family: $HEADLINE_FONT;
+    font-size: 0.8em;
+    font-style: normal;
     font-weight: 200;
+    letter-spacing: 0.08em;
+    margin-top: 5px;
+    padding-bottom: 10px;
+    text-transform: uppercase;
   }
 }
 
@@ -210,7 +261,7 @@ main {
 
 nav.pagination {
   max-width: 100%;
-  font-family: $HEADLINE_FONT;
+  font-family: $PAGINATION_FONT;
   font-style: normal;
   font-weight: 300;
 
@@ -231,16 +282,15 @@ nav.pagination {
 article {
   padding-bottom: 100px;
 
-  h2 {
+  h1, h2, h3 {
     font-size: 1.375em;
     line-height: 1.1em;
-    margin-bottom: -0.5em;
+    margin-bottom: -.2em;
+    margin-top: 2em;
   }
 
-  h3 {
-    font-size: 1.375em;
-    line-height: 1.1em;
-    margin-bottom: -0.5em;
+  h2, h4, h6 {
+    color: #999;
   }
 
   a {
@@ -251,32 +301,35 @@ article {
     font-size: 95%;
     line-height: 140%;
     white-space: pre-wrap;
-  }
 
-  code:not([class*="language-"]):not(p>code) {
-    padding: 15pt;
-    font-size: 95%;
-    line-height: 140%;
-    white-space: pre-wrap;
-    background-color: $LIGHT_GREY_COLOR;
-    display: block;
+    code {
+      padding: 15pt;
+      font-size: 95%;
+      line-height: 140%;
+      white-space: pre-wrap;
+      color: $CARPEAQUA_BLUE;
+      background-color: $LIGHT_GREY_COLOR;
+      display: block;
+    }
   }
 
   // YouTube Videos
   div.video-container {
-  	position:relative;
-  	padding-bottom:56.25%;
-  	padding-top:30px;
-  	height:0;
-  	overflow:hidden;
+  	position: relative;
+  	padding-bottom: 56.25%;
+  	padding-top: 30px;
+  	height: 0;
+  	overflow: hidden;
   }
 
-  div.video-container iframe, .video-container object, .video-container embed {
-  	position:absolute;
-  	top:0;
-  	left:0;
-  	width:100%;
-  	height:100%;
+  div.video-container iframe,
+  div.video-container object,
+  div.video-container embed {
+  	position: absolute;
+  	top: 0;
+  	left: 0;
+  	width: 100%;
+  	height: 100%;
   }
 
 
@@ -290,40 +343,49 @@ article {
     code {
       display: inline;
       padding: 0pt;
-      background-color: $LIGHT_BACKGROUND;
+      background-color: $WHITE_COLOR;
       color: $CARPEAQUA_BLUE;
     }
   }
 
   li {
-    font-size: 1.125em;
+    font-size: 1.0em;
   }
 
   section.footnotes {
     li>p {
-      font-size: 1.0em;
+      font-size: 0.8em;
+      margin: 0;
     }
   }
 
   hr.post-divider {
     margin-top: 50pt;
     margin-bottom: 50pt;
-    border:0px none $WHITE_COLOR;
-    border-top:1px solid #E5E5E5;
+    border: 0px none $WHITE_COLOR;
+    border-top: 1px solid #E5E5E5;
   }
 
   section#author-bio {
     margin: 0 auto;
     text-align: center;
-
     max-width: 50%;
+
     img {
       padding-bottom: 10pt;
     }
 
     p {
-      line-height: 140%;
+      font-family: $FOOTER_FONT;
+      font-style: normal;
+      font-weight: 300;
       margin: 0;
+    }
+
+    b, strong {
+      font-family: $FOOTER_FONT;
+      font-style: normal;
+      font-weight: 700;
     }
   }
 
@@ -337,12 +399,16 @@ article {
   }
 
   section#post-tags {
-    margin-top: 2em;
+    margin-top: 3em;
 
     h6 {
       font-family: $HEADLINE_FONT;
-      padding: 0;
-      margin: 0;
+      font-size: 0.6em;
+      font-style: normal;
+      font-weight: 200;
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+      margin: 0.2em;
     }
 
     ul {
@@ -351,9 +417,10 @@ article {
     }
 
     li {
-      font-family: $HEADLINE_FONT;
-      font-weight: 400;
-      font-size: 1.0em;
+      font-family: $FOOTER_FONT;
+      font-style: normal;
+      font-weight: 700;
+      font-size: 0.9em;
       margin: 0;
       padding: 0;
       display: inline-block;
@@ -490,8 +557,10 @@ article {
         }
       }
 
-      code:not([class*="language-"]):not(p>code) {
-        background-color: $BLACKISH_COLOR;
+      pre {
+        code {
+          background-color: $BLACKISH_COLOR;
+        }
       }
     }
 }
