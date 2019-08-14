@@ -58,7 +58,7 @@ function bundle() {
   return src([
       '**',
       '!node_modules', '!node_modules/**',
-      '!production¸', '!production¸/**'
+      '!production¸', '!production/**'
     ])
     .pipe(zip(filename))
     .pipe(dest('./production/'))
