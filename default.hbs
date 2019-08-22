@@ -23,7 +23,12 @@
 
 <body class="{{body_class}}">
 	<header>
-		<a href="{{@site.url}}" title="carpeaqua home"><img src="{{@site.logo}}" alt="carpeaqua" id="logo" /></a>
+		<a href="{{@site.url}}" title="carpeaqua home">
+      <picture>
+        <source srcset="{{asset "built/logo-dark.svg"}}" media="(prefers-color-scheme: dark)">
+        <img src="{{@site.logo}}" alt="carpeaqua" id="logo" />
+      </picture>
+    </a>
 	</header>
 	<main>
 		{{{body}}}
