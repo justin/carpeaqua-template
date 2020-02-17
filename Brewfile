@@ -1,4 +1,4 @@
 tap "sass/sass"
 
-brew "yarn", args: ['without-node']
+brew "yarn", args: ['ignore-dependencies']
 brew "sass"
