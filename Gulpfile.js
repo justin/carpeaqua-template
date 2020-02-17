@@ -57,8 +57,12 @@ function bundle() {
 
   return src([
       '**',
+      '!Brewfile*',
+      '!Gulpfile*',
       '!node_modules', '!node_modules/**',
-      '!production¸', '!production/**'
+      '!production¸', '!production/**',
+      '!script', '!script/**',
+      '!server', '!server/**'
     ])
     .pipe(zip(filename))
     .pipe(dest('./production/'))
