@@ -24,7 +24,7 @@
   },
   "license": "MIT",
   "dependencies": {
-    "prismjs": "1.22.0"
+    "prismjs": "1.23.0"
   },
   "devDependencies": {
     "del": "6.0.0",
