@@ -1,6 +1,23 @@
 {
   "name": "carpeaqua",
-  "version": "2.5.0",
+  "description": "The current carpeaqua Ghost template",
+  "version": "4.0.0",
+  "engines": {
+    "ghost": ">=4.0.0",
+    "ghost-api": "v4"
+  },
+  "license": "MIT",
+  "scripts": {
+    "dev": "gulp",
+    "test": "gscan .",
+    "test:ci": "gscan --fatal --verbose .",
+    "zip": "gulp production"
+  },
+  "author": {
+    "name": "Justin Williams",
+    "email": "UltravioletEpistemologist@maildrop.cc",
+    "url": "https://justinw.me"
+  },
   "keywords": [
     "ghost",
     "theme",
@@ -10,25 +27,9 @@
     "type": "git",
     "url": "https://github.com/justin/carpeaqua-template.git"
   },
-  "engines": {
-    "ghost-api": "v3"
-  },
-  "config": {
-    "posts_per_page": 5
-  },
-  "description": "The current carpeaqua Ghost template",
-  "author": {
-    "name": "Justin Williams",
-    "email": "UltravioletEpistemologist@maildrop.cc",
-    "url": "https://justinw.me"
-  },
-  "license": "MIT",
-  "dependencies": {
-    "prismjs": "1.24.0"
-  },
   "devDependencies": {
     "del": "6.0.0",
-    "ghost-cli": "1.15.0",
+    "ghost-cli": "1.17.3",
     "gscan": "3.5.7",
     "gulp": "4.0.2",
     "gulp-clean-css": "4.3.0",
@@ -38,11 +39,10 @@
     "gulp-sass": "4.1.0",
     "gulp-uglify": "3.0.2",
     "gulp-zip": "5.0.2",
-    "node-sass": "4.14.1"
+    "node-sass": "4.14.1",
+    "prismjs": "1.24.0"
   },
-  "scripts": {
-    "dev": "gulp",
-    "test": "gscan .",
-    "zip": "gulp production"
+  "config": {
+    "posts_per_page": 5
   }
 }
