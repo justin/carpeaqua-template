@@ -6,8 +6,7 @@ const concat = require('gulp-concat');
 const del = require('del');
 const imagemin = require('gulp-imagemin');
 const rename = require('gulp-rename');
-const sass = require("gulp-sass");
-sass.compiler = require('node-sass');
+const sass = require("gulp-sass")(require('node-sass'));
 const uglify = require('gulp-uglify');
 const zip = require('gulp-zip');
 
