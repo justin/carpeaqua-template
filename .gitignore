@@ -81,3 +81,8 @@ server
 production
 staging
 build
+
+.devcontainer/server/data/*
+.devcontainer/server/files/*
+.devcontainer/server/images/*
+.devcontainer/server/media/*
