@@ -71,7 +71,7 @@ typings/
 .next
 
 # min
-*.min.*
+#*.min.*
 
 # macOS
 .DS_Store

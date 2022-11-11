@@ -1,1 +1,20 @@
-<svg width="67" height="68" xmlns="http://www.w3.org/2000/svg"><g fill="none" fill-rule="evenodd"><path fill="#F1F1F1" d="M0 0h66.885v68H0z"/><g font-size="45" font-family="SFUIText-Light, SF UI Text" font-weight="300"><text fill="#4990E2" transform="translate(0 3.4)"><tspan x="32.328" y="43">A</tspan></text><text fill="#3E3E3E" transform="translate(0 3.4)"><tspan x="0" y="43">C</tspan></text></g></g></svg>
+<?xml version="1.0" encoding="UTF-8"?>
+<svg width="67px" height="68px" viewBox="0 0 67 68" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    <!-- Generator: Sketch 42 (36781) - http://www.bohemiancoding.com/sketch -->
+    <title>Medium Icon</title>
+    <desc>Created with Sketch.</desc>
+    <defs></defs>
+    <g id="Logo" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Medium-Publication-Icon-Copy">
+            <rect id="Rectangle-1" fill="#F1F1F1" x="0" y="0" width="66.8852459" height="68"></rect>
+            <g id="Group" transform="translate(0.000000, 3.400000)" font-size="45" font-family="SFUIText-Light, SF UI Text" font-weight="300">
+                <text id="A" fill="#4990E2">
+                    <tspan x="32.3278689" y="43">A</tspan>
+                </text>
+                <text id="C" fill="#3E3E3E">
+                    <tspan x="0" y="43">C</tspan>
+                </text>
+            </g>
+        </g>
+    </g>
+</svg>
