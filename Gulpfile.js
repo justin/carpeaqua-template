@@ -3,7 +3,6 @@
 const { src, dest, series, parallel, watch } = require('gulp');
 const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
-const imagemin = require('gulp-imagemin');
 const rename = require('gulp-rename');
 const sass = require("gulp-sass")(require('sass'));
 const uglify = require('gulp-uglify');
@@ -45,7 +44,6 @@ function images() {
   }
 
   return src('./assets/images/**/*')
-    .pipe(imagemin(options))
     .pipe(dest("./assets/built/"))
 }
 
