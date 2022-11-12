@@ -1,40 +1,68 @@
-<!DOCTYPE html>
 <html>
-<head>
-	{{#if post}}
-	<title>{{@site.title}}: {{meta_title}}</title>
-	{{else}}
-	<title>{{meta_title}}</title>
-	{{/if}}
-	<meta charset="utf-8" />
-	<meta name="viewport" content="width=device-width, minimum-scale=1.0">
-  <link rel="stylesheet" id="carpeaqua-typography-css" type="text/css" href="https://cloud.typography.com/7044094/7917612/css/fonts.css" />
-	<link rel="stylesheet" id="carpeaqua-primary-css" type="text/css" href="{{asset "built/main.css"}}" />
-  <link rel="stylesheet" id="carpeaqua-prism-css" type="text/css" href="{{asset "built/prism-tomorrow.css"}}" />
-  <link rel="mask-icon" sizes="any" href="{{asset "built/icon-mask.svg"}}" color="#4990E2">
-  <link rel="apple-touch-icon" href="{{asset "built/apple-touch-icon.png"}}">
-  <link rel="shortcut icon" href="{{asset "built/favicon.svg"}}">
-	{{ghost_head}}
-	<meta property="og:image" content="{{asset "built/card-image.png"}}" />
-	<meta property="og:image:width" content="512" />
-	<meta property="og:image:height" content="512" />
-	<meta property="og:locale" content="en_US" />
-</head>
+    <head>
+        {{#if post}}
+            <title>{{@site.title}}: {{meta_title}}</title>
+        {{else}}
+            <title>{{meta_title}}</title>
+        {{/if}}
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width, minimum-scale=1.0" />
+        <link
+            rel="stylesheet"
+            id="carpeaqua-typography-css"
+            type="text/css"
+            href="https://cloud.typography.com/7044094/7917612/css/fonts.css"
+        />
+        <link
+            rel="stylesheet"
+            id="carpeaqua-primary-css"
+            type="text/css"
+            href="{{asset 'built/main.css'}}"
+        />
+        <link
+            rel="stylesheet"
+            id="carpeaqua-prism-css"
+            type="text/css"
+            href="{{asset 'built/prism-tomorrow.css'}}"
+        />
+        <link
+            rel="mask-icon"
+            sizes="any"
+            href="{{asset 'built/icon-mask.svg'}}"
+            color="#4990E2"
+        />
+        <link
+            rel="apple-touch-icon"
+            href="{{asset 'built/apple-touch-icon.png'}}"
+        />
+        <link rel="shortcut icon" href="{{asset 'built/favicon.svg'}}" />
+        {{ghost_head}}
+        <meta property="og:image" content="{{asset 'built/card-image.png'}}" />
+        <meta property="og:image:width" content="512" />
+        <meta property="og:image:height" content="512" />
+        <meta property="og:locale" content="en_US" />
+    </head>
 
-<body class="{{body_class}}">
-	<header>
-		<a href="{{@site.url}}" title="carpeaqua home">
-      <picture>
-        <source srcset="{{asset "built/logo-dark.svg"}}" media="(prefers-color-scheme: dark)">
-        <img src="{{@site.logo}}" alt="carpeaqua" id="logo" />
-      </picture>
-    </a>
-	</header>
-	<main>
-		{{{body}}}
-	</main>
+    <body class="{{body_class}}">
+        <header>
+            <a href="{{@site.url}}" title="carpeaqua home">
+                <picture>
+                    <source
+                        srcset="{{asset 'built/logo-dark.svg'}}"
+                        media="(prefers-color-scheme: dark)"
+                    />
+                    <img src="{{@site.logo}}" alt="carpeaqua" id="logo" />
+                </picture>
+            </a>
+        </header>
+        <main>
+            {{{body}}}
+        </main>
 
-	{{ghost_foot}}
-  <script type='text/javascript' src="{{asset "built/prism.min.js"}}"></script>
-	</body>
-	</html>
+        {{ghost_foot}}
+        <script
+            type="text/javascript"
+            src="{{asset 'built/prism.min.js'}}"
+        ></script>
+    </body>
+</html>
