@@ -33,16 +33,10 @@ function javascript() {
     .pipe(concat('prism.js'))
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
-    .pipe(dest("./assets/built/"));
+    .pipe(dest("./assets/built/"), {sourcemaps: '.'});
 }
 
 function images() {
-  var options = {
-    optimizationLevel: 7,
-    progressive: true,
-    interlaced: true
-  }
-
   return src('./assets/images/**/*')
     .pipe(dest("./assets/built/"))
 }
