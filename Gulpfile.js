@@ -1,26 +1,25 @@
 'use strict';
 
 const { src, dest, series, parallel, watch } = require('gulp');
-const cleanCSS = require('gulp-clean-css');
 const concat = require('gulp-concat');
 const rename = require('gulp-rename');
-const sass = require("gulp-sass")(require('sass'));
+const postcss = require('gulp-postcss');
 const uglify = require('gulp-uglify');
 const zip = require('gulp-zip');
 
-function css() {
-  var sassOptions = {
-    outputStyle: "expanded",
-    sourcemap: 'none'
-  }
+// postcss plugins
+const cssnano = require('cssnano');
+const nestedCSS = require('postcss-nested');
 
-  return src('assets/css/**/*.scss')
-    .pipe(sass(sassOptions))
-    .pipe(dest("assets/built/"))
-    .pipe(cleanCSS())
-    .pipe(dest("assets/built/"))
-    .pipe(src('node_modules/prismjs/themes/prism-tomorrow.css'))
-    .pipe(dest("assets/built/"))
+function css() {
+  return src('assets/css/*.css', {sourcemaps: true})
+    .pipe(postcss([
+        cssnano(),
+        nestedCSS()
+    ]))
+    .pipe(dest("assets/built/", {sourcemaps: '.'}))
+    .pipe(src('node_modules/prismjs/themes/prism-tomorrow.css', {sourcemaps: '.'}))
+    .pipe(dest("assets/built/", {sourcemaps: '.'}))
 }
 
 function javascript() {

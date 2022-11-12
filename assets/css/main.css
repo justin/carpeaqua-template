@@ -7,38 +7,34 @@ Description: This is my template's CSS. It is not a good excuse.
 Version: 1.5
 */
 
-//================================
-// Default Colors
-//================================
-$WHITE_COLOR: #FFFFFF;
-$BLACK_COLOR: #000000;
-$BLACKISH_COLOR: #3E3E3E;
-$LIGHT_GREY_COLOR: #F1F1F1;
-$CARPEAQUA_BLUE: #4A90E2;
+:root {
+    color-scheme: light dark;
 
-//================================
-// Display Colors
-//================================
-$TEXT_COLOR: $BLACKISH_COLOR;
-$DARK_TEXT_COLOR: #E6E5E6;
-$LIGHT_BACKGROUND: $WHITE_COLOR;
-$DARK_BACKGROUND: #1E1E1E;
+    /* Default Colors */
+    --white-color: #FFFFFF;
+    --black-color: #000000;
+    --blackish-color: #3E3E3E;
+    --light-grey-color: #F1F1F1;
+    --carpeaqua-blue-color: #4A90E2;
 
-//================================
-// Fonts
-//================================
-$HEADLINE_FONT: "Gotham SSm A", "Gotham SSm B";
-$FOOTER_FONT: "Ringside Regular SSm A", "Ringside Regular SSm B";
-$PAGINATION_FONT: $FOOTER_FONT;
-$BODY_FONT: "Archer SSm A", "Archer SSm B";
-$CODE_FONT: "Operator Mono SSm A", "Operator Mono SSm B";
+    /* Display Colors */
+    --text-color: var(--blackish-color);
+    --dark-text-color: #E6E5E6;
+    --light-bg-color: var(--white-color);
+    --dark-bg-color: #1E1E1E;
 
-//================================
-// Generic Tags
-//================================
+    /* Fonts */
+    --font-headline: "Gotham SSm A", "Gotham SSm B";
+    --font-footer: "Ringside Regular SSm A", "Ringside Regular SSm B";
+    --font-pagination: --var(--font-footer);
+    --font-code: "Operator Mono SSm A", "Operator Mono SSm B";
+    --font-body: "Archer SSm A", "Archer SSm B";
+}
+
+/* Generic Tags */
 body {
-  background-color: $LIGHT_BACKGROUND;
-  color: $TEXT_COLOR;
+  background-color: var(--light-bg-color);
+  color: var(--text-color);
   line-height: 1.6;
   font-size: 16px;
   font-weight: 300;
@@ -49,20 +45,20 @@ body {
 }
 
 p, li {
-  font-family: $BODY_FONT;
+  font-family: var(--font-body);
   font-size: 1em;
   font-style: normal;
   font-weight: 500;
 }
 
 time {
-  font-family: $HEADLINE_FONT;
+  font-family: var(--font-headline);
   font-style: normal;
   font-weight: 100;
 }
 
 h1, h2, h3, h4, h5, h6 {
-  font-family: $HEADLINE_FONT;
+  font-family: var(--font-headline);
   font-style: normal;
 }
 
@@ -79,13 +75,13 @@ h5, h6 {
 }
 
 b, strong {
-  font-family: $BODY_FONT;
+  font-family: var(--font-body);
   font-style: normal;
   font-weight: 800;
 }
 
 i, em {
-  font-family: $BODY_FONT;
+  font-family: var(--font-body);
   font-style: italic;
   font-weight: 500;
 }
@@ -99,35 +95,35 @@ blockquote {
 
 blockquote,
 blockquote>p {
-  font-family: $HEADLINE_FONT;
+  font-family: var(--font-headline);
   font-style: normal;
   font-weight: 200;
 }
 
 blockquote b,
 blockquote strong {
-  font-family: $HEADLINE_FONT;
+  font-family: var(--font-headline);
   font-style: normal;
   font-weight: 400;
 }
 
 code {
-  font-family: $CODE_FONT;
+  font-family: var(--font-code);
   font-style: normal;
   font-weight: 400;
-  color: $CARPEAQUA_BLUE;
+  color: var(--carpeaqua-blue-color);
 }
 
 dd {
   font-size: 1em;
-  font-family: $BODY_FONT;
+  font-family: var(--font-body);
   font-style: italic;
   font-weight: 500;
   padding-bottom: 1em;
 }
 
 dt {
-  font-family: $HEADLINE_FONT;
+  font-family: var(--font-headline);
   font-size: 0.8em;
   font-style: normal;
   font-weight: 200;
@@ -149,15 +145,13 @@ img {
   max-width: 100vw;
 }
 
-//================================
-// Header Stuff
-//================================
+/* Header Stuff */
 header {
   margin: 0;
   width: 100%;
   border-bottom-width: 0.5;
   border-bottom-style: solid;
-  border-bottom-color: $LIGHT_GREY_COLOR;
+  border-bottom-color: var(--light-grey-color);
 }
 
 img#logo {
@@ -165,14 +159,12 @@ img#logo {
   padding-top: 4pt;
 }
 
-//================================
-// Navigation
-//================================
+/* Navigation */
 section#navigation {
   float: right;
 
   a {
-    color: $TEXT_COLOR;
+    color: var(--text-color);
     text-decoration: none;
     display: inline-block;
     padding-right: 20pt;
@@ -195,16 +187,14 @@ nav#menu-icon {
   display: none;
 }
 
-//================================
-// Main Content
-//================================
+/* Main Content */
 main {
   text-align: left;
   max-width: 775px;
   margin: 0 auto 2em auto;
   padding-left: 12pt;
   padding-right: 12pt;
-  background-color: $LIGHT_BACKGROUND;
+  background-color: var(--light-bg-color);
   display: block;
 }
 
@@ -213,7 +203,7 @@ main {
   text-align: left;
   margin-bottom: 0;
   padding-left: 10px;
-  border-left: 10px $CARPEAQUA_BLUE solid;
+  border-left: 10px var(--carpeaqua-blue-color) solid;
 
   h1 {
     font-size: 1.5em;
@@ -223,13 +213,13 @@ main {
 
   a {
     text-decoration: none;
-    color: $TEXT_COLOR;
+    color: var(--text-color);
   }
 
   time {
     color: #999;
     display: block;
-    font-family: $HEADLINE_FONT;
+    font-family: var(--font-headline);
     font-size: 0.8em;
     font-style: normal;
     font-weight: 200;
@@ -240,9 +230,7 @@ main {
   }
 }
 
-//================================
-// Gallery Support
-//================================
+/* Gallery Stuff */
  .kg-gallery-container {
    display: flex;
    flex-direction: column;
@@ -256,13 +244,10 @@ main {
   padding: 20pt;
 }
 
-//================================
-// Pagination
-//================================
-
+/* Pagination */
 nav.pagination {
   max-width: 100%;
-  font-family: $PAGINATION_FONT;
+  font-family: var(--font-pagination);
   font-style: normal;
   font-weight: 300;
 
@@ -273,13 +258,11 @@ nav.pagination {
 
   a.older-posts,
   a.newer-posts {
-    color: $CARPEAQUA_BLUE;
+    color: var(--carpeaqua-blue-color);
   }
 }
 
-//================================
-// Articles
-//================================
+/* Articles Stuff */
 article {
   padding-bottom: 100px;
 
@@ -295,7 +278,7 @@ article {
   }
 
   a {
-    color: $CARPEAQUA_BLUE;
+    color: var(--carpeaqua-blue-color);
   }
 
   pre {
@@ -308,13 +291,13 @@ article {
       font-size: 95%;
       line-height: 140%;
       white-space: pre-wrap;
-      color: $CARPEAQUA_BLUE;
-      background-color: $LIGHT_GREY_COLOR;
+      color: var(--carpeaqua-blue-color);
+      background-color: var(--light-grey-color);
       display: block;
     }
   }
 
-  // YouTube Videos
+  /* YouTube Videos */
   div.video-container {
   	position: relative;
   	padding-bottom: 56.25%;
@@ -344,8 +327,8 @@ article {
     code {
       display: inline;
       padding: 0pt;
-      background-color: $WHITE_COLOR;
-      color: $CARPEAQUA_BLUE;
+      background-color: var(--white-color);
+      color: var(--carpeaqua-blue-color);
     }
   }
 
@@ -363,7 +346,7 @@ article {
   hr.post-divider {
     margin-top: 50pt;
     margin-bottom: 50pt;
-    border: 0px none $WHITE_COLOR;
+    border: 0px none var(--white-color);
     border-top: 1px solid #E5E5E5;
   }
 
@@ -377,14 +360,14 @@ article {
     }
 
     p {
-      font-family: $FOOTER_FONT;
+      font-family: var(--font-footer);
       font-style: normal;
       font-weight: 300;
       margin: 0;
     }
 
     b, strong {
-      font-family: $FOOTER_FONT;
+      font-family: var(--font-footer);
       font-style: normal;
       font-weight: 700;
     }
@@ -403,7 +386,7 @@ article {
     margin-top: 3em;
 
     h6 {
-      font-family: $HEADLINE_FONT;
+      font-family: var(--font-headline);
       font-size: 0.6em;
       font-style: normal;
       font-weight: 200;
@@ -418,7 +401,7 @@ article {
     }
 
     li {
-      font-family: $FOOTER_FONT;
+      font-family: var(--font-footer);
       font-style: normal;
       font-weight: 700;
       font-size: 0.9em;
@@ -433,7 +416,7 @@ article {
       font-weight: 100;
       margin: 0 0.5rem 0 0.8rem;
       padding: 0;
-      color: $BLACKISH_COLOR;
+      color: var(--blackish-color);
     }
 
     li:last-child:after {
@@ -488,7 +471,7 @@ article {
     }
 
     nav#navigation-list.expanded a {
-      background-color: $LIGHT_GREY_COLOR;
+      background-color: var(--light-grey-color);
       text-align: center;
       padding: 5pt;
     }
@@ -519,48 +502,41 @@ article {
   }
 }
 
-//================================
-// Dark Mode Support
-//================================
-:root {
-    color-scheme: light dark;
-    supported-color-schemes: light dark;
-}
-
+/* Dark Mode Support */
 @media (prefers-color-scheme: dark) {
     body {
-      color: $DARK_TEXT_COLOR;
-      background-color: $DARK_BACKGROUND;
+      color: var(--dark-text-color);
+      background-color: var(--dark-bg-color);
     }
 
     main {
-      background-color: $DARK_BACKGROUND;
+      background-color: var(--dark-bg-color);
     }
 
     #post-title {
       a {
-        color: $DARK_TEXT_COLOR;
+        color: var(--dark-text-color);
       }
     }
 
     header {
-      border-bottom-color: $CARPEAQUA_BLUE;
+      border-bottom-color: var(--carpeaqua-blue-color);
     }
 
     code {
-      background-color: $DARK_BACKGROUND;
+      background-color: var(--dark-bg-color);
     }
 
     article {
       p {
         code {
-          background-color: $DARK_BACKGROUND;
+          background-color: var(--dark-bg-color);
         }
       }
 
       pre {
         code {
-          background-color: $BLACKISH_COLOR;
+          background-color: var(--blackish-color);
         }
       }
     }
