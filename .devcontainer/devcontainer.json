@@ -16,7 +16,8 @@
                 "dbaeumer.vscode-eslint",
                 "esbenp.prettier-vscode",
                 "EditorConfig.EditorConfig",
-                "lifeart.vscode-glimmer-syntax"
+                "lifeart.vscode-glimmer-syntax",
+                "TryGhost.ghost"
             ]
         }
     },
