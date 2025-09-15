@@ -1,15 +1,22 @@
-name: Deploy Theme
+name: Test Theme
 on:
   push:
     branches:
       - main
+  pull_request:
+    branches:
+      - main
 jobs:
-  deploy:
+  test:
     runs-on: ubuntu-24.04
     steps:
       - uses: actions/checkout@v5
-      - name: Deploy Ghost Theme
-        uses: TryGhost/action-deploy-theme@v1
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
         with:
-          api-url: ${{ secrets.GHOST_ADMIN_API_URL }}
-          api-key: ${{ secrets.GHOST_ADMIN_API_KEY }}
+          node-version: '18'
+          cache: 'npm'
+      - name: Install dependencies
+        run: npm ci
+      - name: Run tests
+        run: npm run test:ci
