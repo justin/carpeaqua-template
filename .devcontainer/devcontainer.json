@@ -1,47 +1,47 @@
 // For format details, see https://aka.ms/devcontainer.json. For config options, see the README at:
 // https://github.com/microsoft/vscode-dev-containers/tree/v0.234.0/containers/javascript-node
 {
-    "name": "carpeaqua theme",
-    "build": {
-        "dockerfile": "Dockerfile",
-        "args": {
-            "VARIANT": "16-bullseye"
-        }
-    },
+  "name": "carpeaqua theme",
+  "build": {
+    "dockerfile": "Dockerfile",
+    "args": {
+      "VARIANT": "16-bullseye"
+    }
+  },
 
-    "customizations": {
-        "vscode": {
-            "extensions": [
-                "csstools.postcss",
-                "dbaeumer.vscode-eslint",
-                "esbenp.prettier-vscode",
-                "EditorConfig.EditorConfig",
-                "lifeart.vscode-glimmer-syntax",
-                "TryGhost.ghost"
-            ]
-        }
-    },
+  "customizations": {
+    "vscode": {
+      "extensions": [
+        "csstools.postcss",
+        "dbaeumer.vscode-eslint",
+        "esbenp.prettier-vscode",
+        "EditorConfig.EditorConfig",
+        "lifeart.vscode-glimmer-syntax",
+        "TryGhost.ghost"
+      ]
+    }
+  },
 
-    // Use 'forwardPorts' to make a list of ports inside the container available locally.
-    "forwardPorts": [2638],
+  // Use 'forwardPorts' to make a list of ports inside the container available locally.
+  "forwardPorts": [2638],
 
-    "portsAttributes": {
-        "2368": {
-            "label": "Ghost Dev Server",
-            "onAutoForward": "notify"
-        }
-    },
+  "portsAttributes": {
+    "2368": {
+      "label": "Ghost Dev Server",
+      "onAutoForward": "notify"
+    }
+  },
 
-    "mounts": [
-        "source=${localWorkspaceFolder}/.devcontainer/server/data,target=/srv/www/ghost/content/data,type=bind,consistency=cached",
-        "source=${localWorkspaceFolder}/.devcontainer/server/files,target=/srv/www/ghost/content/files,type=bind,consistency=cached",
-        "source=${localWorkspaceFolder}/.devcontainer/server/images,target=/srv/www/ghost/content/images,type=bind,consistency=cached",
-        "source=${localWorkspaceFolder}/.devcontainer/server/media,target=/srv/www/ghost/content/media,type=bind,consistency=cached"
-    ],
-    "workspaceMount": "source=${localWorkspaceFolder},target=/srv/www/ghost/content/themes/carpeaqua-template,type=bind",
-    "workspaceFolder": "/srv/www/ghost/content/themes/carpeaqua-template",
-    "postStartCommand": "cd /srv/www/ghost/content/themes/carpeaqua-template && yarn install && cd /srv/www/ghost && ghost start",
+  "mounts": [
+    "source=${localWorkspaceFolder}/.devcontainer/server/data,target=/srv/www/ghost/content/data,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/.devcontainer/server/files,target=/srv/www/ghost/content/files,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/.devcontainer/server/images,target=/srv/www/ghost/content/images,type=bind,consistency=cached",
+    "source=${localWorkspaceFolder}/.devcontainer/server/media,target=/srv/www/ghost/content/media,type=bind,consistency=cached"
+  ],
+  "workspaceMount": "source=${localWorkspaceFolder},target=/srv/www/ghost/content/themes/carpeaqua-template,type=bind",
+  "workspaceFolder": "/srv/www/ghost/content/themes/carpeaqua-template",
+  "postStartCommand": "cd /srv/www/ghost/content/themes/carpeaqua-template && yarn install && cd /srv/www/ghost && ghost start",
 
-    // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
-    "remoteUser": "node"
+  // Comment out to connect as root instead. More info: https://aka.ms/vscode-remote/containers/non-root.
+  "remoteUser": "node"
 }
