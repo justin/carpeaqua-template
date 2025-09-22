@@ -12,14 +12,14 @@ const cssnano = require('cssnano');
 const nestedCSS = require('postcss-nested');
 
 function css() {
-  return src('assets/css/*.css', {sourcemaps: true})
+  return src('assets/css/*.css', { sourcemaps: true })
     .pipe(postcss([
-        cssnano(),
-        nestedCSS()
+      cssnano(),
+      nestedCSS()
     ]))
-    .pipe(dest("assets/built/", {sourcemaps: '.'}))
-    .pipe(src('node_modules/prismjs/themes/prism-tomorrow.css', {sourcemaps: '.'}))
-    .pipe(dest("assets/built/", {sourcemaps: '.'}))
+    .pipe(dest("assets/built/", { sourcemaps: '.' }))
+    .pipe(src('node_modules/prismjs/themes/prism-tomorrow.css', { sourcemaps: '.' }))
+    .pipe(dest("assets/built/", { sourcemaps: '.' }))
 }
 
 function javascript() {
@@ -28,11 +28,11 @@ function javascript() {
     'node_modules/prismjs/components/prism-swift.js',
     'node_modules/prismjs/components/prism-bash.js',
     'node_modules/prismjs/components/prism-json.js',
-    ])
+  ])
     .pipe(concat('prism.js'))
     .pipe(uglify())
     .pipe(rename({ suffix: '.min' }))
-    .pipe(dest("./assets/built/"), {sourcemaps: '.'});
+    .pipe(dest("./assets/built/"), { sourcemaps: '.' });
 }
 
 function images() {
@@ -45,14 +45,14 @@ function bundle() {
   var filename = themeName + '.zip';
 
   return src([
-      '**',
-      '!Brewfile*',
-      '!Gulpfile*',
-      '!node_modules', '!node_modules/**',
-      '!production¸', '!production/**',
-      '!script', '!script/**',
-      '!server', '!server/**'
-    ])
+    '**',
+    '!Brewfile*',
+    '!Gulpfile*',
+    '!node_modules', '!node_modules/**',
+    '!production¸', '!production/**',
+    '!script', '!script/**',
+    '!server', '!server/**'
+  ])
     .pipe(zip(filename))
     .pipe(dest('./production/'))
 }
