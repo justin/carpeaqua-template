@@ -1,25 +1,21 @@
 {{!< default}}
 {{#post}}
-    <article class="{{post_class}} standard" id="{{comment_id}}">
+<article class="{{post_class}} standard" id="{{comment_id}}">
+<div id="post-title">
+  <h1><a href="{{url}}" rel="bookmark">{{title}}</a></h1>
+  <time datetime="{{date format="YYYY-MM-DD"}}">{{ date format="MMMM Do, YYYY" }}</time>
+</div>
 
-        <div id="post-title">
-            <h1><a href="{{url}}" rel="bookmark">{{title}}</a></h1>
-            <time datetime="{{date format="YYYY-MM-DD"}}">{{date
-                    format="MMMM Do, YYYY"
-                }}</time>
-        </div>
+{{content}}
+{{> "tags"}}
 
-        {{content}}
-        {{> "tags"}}
+<hr class="post-divider" />
 
-        <hr class="post-divider" />
+<section id="author-bio">
+  <img class="avatar" src="{{asset 'images/jww.jpg'}}" />
+  <p><strong>By Justin Williams</strong></p>
+  <p>This is a two sentence bio. There are many like it, but this one is mine.</p>
+</section>
 
-        <section id="author-bio">
-            <img class="avatar" src="{{asset 'images/jww.jpg'}}" />
-            <p><strong>By Justin Williams</strong></p>
-            <p>This is a two sentence bio. There are many like it, but this one
-                is mine.</p>
-        </section>
-
-    </article>
+</article>
 {{/post}}

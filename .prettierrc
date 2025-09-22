@@ -1,11 +1,14 @@
 {
-    "overrides": [
-        {
-            "files": "**/*.{hbs}",
-            "options": {
-                "editorconfig": true,
-                "parser": "glimmer"
-            }
-        }
-    ]
+  "overrides": [
+    {
+      "files": "**/*.{hbs}",
+      "options": {
+        "editorconfig": true,
+        "parser": "glimmer"
+      }
+    }
+  ],
+  "plugins": [
+    "prettier-plugin-handlebars"
+  ]
 }
