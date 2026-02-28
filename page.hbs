@@ -1,0 +1,20 @@
+{{!< default}}
+{{#post}}
+  <article class="{{post_class}} pb-24 block mx-0 my-4" id="{{comment_id}}">
+    {{#if @page.show_title_and_feature_image}}
+      <div
+        class="block text-left mb-0 pl-2.5 border-l-[10px] border-carpeaqua-blue"
+      >
+        <h1
+          class="text-2xl mt-4 pt-2.5 text-blackish dark:text-dark-text"
+        >{{title}}</h1>
+      </div>
+
+      {{#if feature_image}}
+        <img src="{{feature_image}}" alt="{{title}}" />
+      {{/if}}
+    {{/if}}
+
+    {{content}}
+  </article>
+{{/post}}
