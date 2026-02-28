@@ -27,8 +27,11 @@
     "url": "https://github.com/justin/carpeaqua-template.git"
   },
   "devDependencies": {
-    "cssnano": "^7.1.1",
-    "gscan": "^5.1.0",
+    "@tailwindcss/cli": "^4.2.1",
+    "@tailwindcss/postcss": "^4.2.1",
+    "autoprefixer": "^10.4.27",
+    "cssnano": "^7.1.2",
+    "gscan": "^5.2.5",
     "gulp": "^5.0.1",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
@@ -41,7 +44,8 @@
     "postcss-easy-import": "^4.0.0",
     "postcss-nested": "^7.0.2",
     "prettier-plugin-handlebars": "^0.0.1",
-    "prismjs": "^1.30.0"
+    "prismjs": "^1.30.0",
+    "tailwindcss": "^4.1.14"
   },
   "config": {
     "posts_per_page": 5
