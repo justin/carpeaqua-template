@@ -21,15 +21,15 @@
 </head>
 
 <body class="{{body_class}}">
-  <header>
-    <a href="{{@site.url}}" title="carpeaqua home">
+  <header class="w-full border-b border-gray-200 dark:border-carpeaqua-blue">
+    <a href="{{@site.url}}" title="carpeaqua home" class="inline-block pl-3 pt-1">
       <picture>
         <source srcset="{{asset 'built/logo-dark.svg'}}" media="(prefers-color-scheme: dark)" />
-        <img src="{{@site.logo}}" alt="carpeaqua" id="logo" />
+        <img src="{{@site.logo}}" alt="carpeaqua" id="logo" class="h-auto" />
       </picture>
     </a>
   </header>
-  <main>
+  <main class="text-left max-w-[775px] mx-auto my-0 mb-8 px-3 bg-white dark:bg-dark-bg block">
     {{{body}}}
   </main>
 

@@ -8,14 +8,18 @@ const uglify = require('gulp-uglify');
 const zip = require('gulp-zip');
 
 // postcss plugins
+const tailwindcss = require('@tailwindcss/postcss');
+const autoprefixer = require('autoprefixer');
 const cssnano = require('cssnano');
 const nestedCSS = require('postcss-nested');
 
 function css() {
   return src('assets/css/*.css', { sourcemaps: true })
     .pipe(postcss([
-      cssnano(),
-      nestedCSS()
+      tailwindcss(),
+      autoprefixer(),
+      nestedCSS(),
+      cssnano()
     ]))
     .pipe(dest("assets/built/", { sourcemaps: '.' }))
     .pipe(src('node_modules/prismjs/themes/prism-tomorrow.css', { sourcemaps: '.' }))
