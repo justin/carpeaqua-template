@@ -30,6 +30,8 @@ Version: 2.0
 @layer base {
   :root {
     color-scheme: light dark;
+    --gh-font-heading: var(--font-family-sans);
+    --gh-font-body: var(--font-family-sans);
   }
 
   body {
