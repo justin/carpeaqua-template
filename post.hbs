@@ -1,21 +1,31 @@
 {{!< default}}
 {{#post}}
-<article class="{{post_class}} pb-24 block mx-0 my-4" id="{{comment_id}}">
-<div class="block text-left mb-0 pl-2.5 border-l-[10px] border-carpeaqua-blue">
-  <h1 class="text-2xl mt-4 pt-2.5"><a href="{{url}}" rel="bookmark" class="no-underline text-blackish dark:text-dark-text">{{title}}</a></h1>
-  <time datetime="{{date format="YYYY-MM-DD"}}" class="text-dark-grey block font-sans text-xs font-extralight tracking-widest mt-1.5 pb-2.5 uppercase">{{ date format="MMMM Do, YYYY" }}</time>
+<div class="blog-container">
+  <a href="{{@site.url}}" class="font-sans text-xs font-semibold uppercase tracking-wide text-dark-grey no-underline block pt-6">&larr; Back to Justin Williams</a>
+
+  {{#if feature_image}}
+  <img src="{{feature_image}}" alt="{{title}}" class="w-full rounded-2xl mt-5" />
+  {{/if}}
+
+  <article class="{{post_class}} pb-24 block mx-0 my-4" id="{{comment_id}}">
+    <div class="block text-left mb-0 pl-2.5 border-l-10 border-carpeaqua-blue">
+      <h1 class="text-3xl mt-4 pt-2.5 text-blackish dark:text-dark-text">{{title}}</h1>
+      <time datetime="{{date format="YYYY-MM-DD"}}" class="text-dark-grey block font-sans text-xs font-extralight tracking-[.08em] mt-1.5 pb-2.5 uppercase">{{ date format="MMMM Do, YYYY" }}</time>
+    </div>
+
+    {{content}}
+    {{> "tags"}}
+
+    <hr class="post-divider" />
+
+    <section id="author-bio">
+      <img class="avatar" src="{{asset 'images/jww.jpg'}}" />
+      <p>Justin Williams</p>
+      <p>Independent software developer based in Denver, Colorado. Writing about building small products since 2003.</p>
+      {{> "social-links"}}
+    </section>
+
+    {{> "subscribe-cta"}}
+  </article>
 </div>
-
-{{content}}
-{{> "tags"}}
-
-<hr class="post-divider" />
-
-<section id="author-bio">
-  <img class="avatar" src="{{asset 'images/jww.jpg'}}" />
-  <p><strong>By Justin Williams</strong></p>
-  <p>This is a two sentence bio. There are many like it, but this one is mine.</p>
-</section>
-
-</article>
 {{/post}}

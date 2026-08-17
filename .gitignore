@@ -36,3 +36,4 @@ build
 .devcontainer/server/files/*
 .devcontainer/server/images/*
 .devcontainer/server/media/*
+.env.local

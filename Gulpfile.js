@@ -5,7 +5,8 @@ const concat = require('gulp-concat');
 const rename = require('gulp-rename');
 const postcss = require('gulp-postcss');
 const uglify = require('gulp-uglify');
-const zip = require('gulp-zip');
+// gulp-zip v6 is ESM; under require() it resolves to the module namespace.
+const zip = require('gulp-zip').default;
 
 // postcss plugins
 const tailwindcss = require('@tailwindcss/postcss');
@@ -48,15 +49,19 @@ function bundle() {
   var themeName = require('./package.json').name;
   var filename = themeName + '.zip';
 
+  // Everything Ghost needs to render the theme, and nothing else. Local-only
+  // tooling (scripts/, docs/) is deliberately excluded — Ghost ignores it, and
+  // it would otherwise ship the Admin API client to production.
   return src([
     '**',
     '!Brewfile*',
     '!Gulpfile*',
     '!node_modules', '!node_modules/**',
-    '!production¸', '!production/**',
-    '!script', '!script/**',
+    '!production', '!production/**',
+    '!scripts', '!scripts/**',
+    '!docs', '!docs/**',
     '!server', '!server/**'
-  ])
+  ], { dot: false })
     .pipe(zip(filename))
     .pipe(dest('./production/'))
 }

@@ -1,3 +1,11 @@
 {
   "prettier.requireConfig": true,
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/bower_components": true,
+    "**/*.code-search": true,
+    "**/production": true,
+    ".devcontainer/server": true,
+    "assets/built": true,
+  }
 }
