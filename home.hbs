@@ -1,0 +1,68 @@
+{{!< default}}
+<div class="portfolio-container">
+
+  {{#get "pages" filter="slug:home" limit="1"}}
+    {{#foreach pages}}
+      {{content}}
+    {{else}}
+      <p class="pf-section">Create a Page in Ghost Admin with the slug <code>home</code> to populate this homepage.</p>
+    {{/foreach}}
+  {{/get}}
+
+  <section id="writing" class="pf-section">
+    <h2 class="section-label">Essays &amp; Writing</h2>
+    <p class="writing-intro">Essays and posts from carpe aqua, my personal blog since 2003, together in one place.</p>
+
+    <div class="writing-grid">
+      {{#get "posts" limit="5" include="tags"}}
+        {{#foreach posts}}
+        <div class="post-card">
+          <a href="{{url}}" class="post-card__title">{{title}}</a>
+          <time class="post-card__meta" datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM D, YYYY"}}{{#if primary_tag}} &middot; {{primary_tag.name}}{{/if}}</time>
+          <p class="post-card__excerpt">{{excerpt characters="140"}}</p>
+        </div>
+        {{/foreach}}
+      {{/get}}
+
+      <a href="{{@site.url}}blog/" class="post-card--more">
+        <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="M13 6l6 6-6 6"></path></svg>
+        <strong>View all posts</strong>
+        <span>carpe aqua archive</span>
+      </a>
+    </div>
+
+    {{> "subscribe-cta"}}
+  </section>
+
+  {{!-- Contact lives in the theme, not in the "home" Page content, so it is
+        always the last section regardless of what gets added to the Page. --}}
+  <section id="contact" class="pf-section">
+    <h2 class="section-label">Contact Me</h2>
+    <p>Please use this form if you would like to get in touch with me in regards to <strong>hiring me</strong>, inviting me to speak at your company or event, or anything else. I'll do my best to get back to you within seventy-two hours.</p>
+
+    {{!-- No submission backend is wired up yet — set `action` and `method` once
+          a handler (Formspree, a serverless endpoint, etc.) has been picked. --}}
+    <form class="contact-form">
+      <div class="contact-form__row">
+        <label class="form-field">
+          <span class="form-label">Name</span>
+          <input class="form-input" type="text" name="name" required />
+        </label>
+        <label class="form-field">
+          <span class="form-label">Email</span>
+          <input class="form-input" type="email" name="email" required />
+        </label>
+      </div>
+      <label class="form-field">
+        <span class="form-label">Subject</span>
+        <input class="form-input" type="text" name="subject" />
+      </label>
+      <label class="form-field">
+        <span class="form-label">Message</span>
+        <textarea class="form-textarea" name="message" rows="5" required></textarea>
+      </label>
+      <button class="btn-primary" type="submit">Send</button>
+    </form>
+  </section>
+
+</div>

@@ -1,0 +1,23 @@
+{{!-- Social icons. Ghost's own "Social accounts" settings (Settings > General)
+      drive everything except GitHub, which Ghost has no field for — that one
+      stays a custom theme setting (Design > Site-wide). --}}
+<div class="site-footer__icons">
+  {{#if @custom.github_url}}
+    <a
+      href="{{@custom.github_url}}"
+      target="_blank"
+      rel="noopener"
+      aria-label="GitHub"
+      class="icon-link"
+    >{{> "icons/github"}}</a>
+  {{/if}}
+  {{#social_accounts @site}}
+    <a
+      href="{{href}}"
+      target="_blank"
+      rel="noopener"
+      aria-label="{{name}}"
+      class="icon-link"
+    >{{#> (concat "icons/" type)}}{{name}}{{/undefined}}</a>
+  {{/social_accounts}}
+</div>

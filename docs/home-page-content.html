@@ -1,0 +1,191 @@
+<!--
+  Reference content for the "home" Page in Ghost Admin.
+
+  Step-by-step instructions live in docs/ghost-setup.md. The short version: this file
+  holds five sections, each marked "CARD n" below. Each one goes into its own HTML card
+  in the Ghost editor, in this order. Splitting them across cards renders exactly the
+  same as one big card, but keeps each section independently editable.
+
+  Two rules when editing:
+
+  - Only use the classnames below (hero, timeline, project-card, etc.) — they're defined
+    in assets/css/main.css. Tailwind utility classes typed directly into the editor will
+    NOT be styled, because Tailwind only scans the theme's own files at build time, not
+    page content stored in Ghost's database.
+  - Handlebars helpers ({{asset}}, {{url}}, …) do not run inside page content. Image src
+    values must be real paths under /content/images/, not theme asset references.
+
+  The images referenced below live at /content/images/portfolio/. Locally they are served
+  out of .devcontainer/server/images/portfolio/ via the devcontainer bind mount. On
+  production they need to be uploaded to the same path before this content will render.
+
+  home.hbs renders this page's content inside a .portfolio-container, followed by three
+  theme-owned sections: "Essays & Writing" (latest 5 posts, pulled live), the Subscribe
+  CTA, and Contact. Do not duplicate those in this page's content — they render
+  automatically below whatever you put here, and Contact is deliberately theme-owned so
+  it stays the last section on the page no matter what is added here.
+-->
+
+<!-- ============================ CARD 1 — Hero / About ============================ -->
+
+<section id="about" class="hero pf-section">
+  <div class="hero__intro">
+    <div class="hero__heading">
+      <span class="accent-bar"></span>
+      <h1>Hello.</h1>
+    </div>
+    <p class="hero__lede">Hi. My name is <strong>Justin Williams</strong>. I am an independent software developer located in sunny Denver, Colorado.</p>
+    <h3 class="section-label">Where You May Know Me From</h3>
+    <ul class="hero__list">
+      <li><strong>PocketTweets</strong> — The first iPhone Twitter client way back in the summer of 2007.</li>
+      <li><strong>Elements</strong> — The first Dropbox text editor for the iPhone and iPad. Released in the summer of 2011.</li>
+      <li><strong>Glassboard</strong> — The privacy-focused messaging platform for iOS and Android I acquired in December 2013.</li>
+      <li><a href="https://justinw.me/cocoaradio"><strong>CocoaRadio</strong></a> — The Apple developer-oriented podcast I hosted in 2014.</li>
+      <li><a href="https://github.com/justin/Achieving-Zen-With-Auto-Layout/"><strong>Achieving Zen with Auto Layout</strong></a> — The popular developer conference talk and book I produced from 2013-2018.</li>
+    </ul>
+  </div>
+  <div class="hero__photo">
+    <img src="/content/images/portfolio/justin-williams.jpg" alt="Justin Williams" />
+  </div>
+</section>
+
+<!-- ============================ CARD 2 — Career Stops ============================ -->
+
+<section id="career" class="pf-section">
+  <h2 class="section-label">Career Stops</h2>
+
+  <div class="timeline">
+    <div class="timeline__item">
+      <div class="timeline__rail">
+        <div class="timeline__logo"><img src="/content/images/portfolio/logo-spatial.png" alt="Spatial logo" /></div>
+        <div class="timeline__connector"></div>
+      </div>
+      <div class="timeline__content">
+        <h3 class="timeline__role">Spatial <span class="timeline__role-meta">— Principal Engineer, Design Software</span></h3>
+        <p>Design and build macOS prototypes for design tools for rendering 3D/spatial scenes for viewing on visionOS. Convert internal RealityKit framework to support AppKit and macOS. Extracted various macOS specific components related to data and network processing to be usable by other teams using visionOS and iOS.</p>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__rail">
+        <div class="timeline__logo"><img src="/content/images/portfolio/logo-pff.png" alt="Pro Football Focus logo" /></div>
+        <div class="timeline__connector"></div>
+      </div>
+      <div class="timeline__content">
+        <h3 class="timeline__role">Pro Football Focus <span class="timeline__role-meta">— Lead iOS Developer</span></h3>
+        <p>Worked with betting partners and internal stakeholders to define and implement API platforms and networking and UI component SDKs for macOS, iOS, and React Native. Built internal macOS applications and tooling using SwiftUI to allow product and sales teams to access betting APIs natively on their work device and provide demos to potential clients.</p>
+        <p>Worked with mobile and web teams to integrate SDK into first-party mobile and web applications. Wrote and deployed technical documentation for installing and using Swift and TypeScript SDKs respectively. Integrated custom Live Activity and Home Screen widget using SwiftUI to track your best fantasy football draft picks.</p>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__rail">
+        <div class="timeline__logo"><img src="/content/images/portfolio/logo-neurotrack.png" alt="Neurotrack logo" /></div>
+        <div class="timeline__connector"></div>
+      </div>
+      <div class="timeline__content">
+        <h3 class="timeline__role">Neurotrack <span class="timeline__role-meta">— iOS Development Lead</span></h3>
+        <p>Coordinated with stakeholders across web, mobile, and backend to develop a new API for the distribution and administration of cognitive exams. Built the iOS integration of said API and deployed it across all six cognitive exams.</p>
+        <p>Worked with design team to define the company-wide design language and style guide. This was deployed across iOS, Android, and Web applications.</p>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__rail">
+        <div class="timeline__logo"><img src="/content/images/portfolio/logo-ted.png" alt="TED logo" /></div>
+        <div class="timeline__connector"></div>
+      </div>
+      <div class="timeline__content">
+        <h3 class="timeline__role">TED <span class="timeline__role-meta">— Mobile Development Lead</span></h3>
+        <p>Led development of visual redesign that shipped in June 2018. Led years-long transition from code base designed for the original iPad and iOS 3.2 to support modern technologies such as Auto Layout, adaptivity, and Swift. Built and deployed first and second generation of TED's custom video player using AV Foundation. Coordinated, developed, and deployed app in 20 additional languages.</p>
+        <p>Collaborated with other teams in the organization to bring syncing of TED.com accounts to the iOS product. Reduced in-app crashes 50% year over year.</p>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__rail">
+        <div class="timeline__logo"><img src="/content/images/portfolio/logo-hipstamatic.png" alt="Hipstamatic logo" /></div>
+        <div class="timeline__connector"></div>
+      </div>
+      <div class="timeline__content">
+        <h3 class="timeline__role">Hipstamatic <span class="timeline__role-meta">— Senior iOS Developer</span></h3>
+        <p>Designed, developed, and implemented new features for popular camera application Hipstamatic. Assisted in production of Snap Magazine for iPad, which was read by over 100,000 people. In charge of special projects related to sharing both externally and internally within the Hipstamatic ecosystem.</p>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__rail">
+        <div class="timeline__logo"><img src="/content/images/portfolio/logo-hoteltonight.png" alt="HotelTonight logo" /></div>
+        <div class="timeline__connector"></div>
+      </div>
+      <div class="timeline__content">
+        <h3 class="timeline__role">HotelTonight <span class="timeline__role-meta">— Senior iOS Developer</span></h3>
+        <p>Implemented accessibility support in the existing iPhone app. Added support for collecting user reviews to iPhone app. Co-developed iPad app from scratch, which was featured by Apple and maintains a 4.5 star rating.</p>
+      </div>
+    </div>
+
+    <div class="timeline__item">
+      <div class="timeline__rail">
+        <div class="timeline__logo"><img src="/content/images/portfolio/logo-secondgear.png" alt="Second Gear logo" /></div>
+      </div>
+      <div class="timeline__content">
+        <h3 class="timeline__role">Second Gear</h3>
+        <p>From 2006 to 2012, I ran an independent Mac and iOS software development company called Second Gear. Under the Second Gear banner I released a variety of different products (with varying success):</p>
+        <ul class="hero__list">
+          <li><a href="https://www.macupdate.com/app/mac/27366/today">Today</a> — Mac OS X calendaring application designed to show only your current day's agenda and to-do list.</li>
+          <li><a href="https://www.cnet.com/news/iphone-app-pockettweets/">PocketTweets</a> — A "sweet" solution for browsing your Twitter feed on the original iPhone.</li>
+          <li><a href="https://www.cultofmac.com/55845/elements-for-ipad-is-a-perfect-dropbox-syncing-text-editor-for-writers/">Elements</a> — The first notes and writing app for the iPad that synced with Dropbox.</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ============================= CARD 3 — Education ============================== -->
+
+<section id="education" class="pf-section education">
+  <div class="education__photo">
+    <img src="/content/images/portfolio/purdue.jpg" alt="Purdue University bell tower" />
+  </div>
+  <div>
+    <h2 class="section-label">Education</h2>
+    <p>I have a Bachelor of Science degree in Computer &amp; Information Technology from <a href="http://purdue.edu">Purdue University</a> in West Lafayette, Indiana.</p>
+  </div>
+</section>
+
+<!-- ========================= CARD 4 — Technical Prowess ========================== -->
+
+<section id="skills" class="pf-section">
+  <h2 class="section-label">Technical Prowess</h2>
+  <ul class="skills-list">
+    <li><strong>iOS, tvOS, watchOS Development</strong> — An architect-level iOS engineer with deep experience using Core Data, <a href="https://github.com/justin/Achieving-Zen-With-Auto-Layout/">Auto Layout</a>, AV Foundation.</li>
+    <li><strong>macOS Development</strong> — A senior-level macOS engineer with experience in Core Data, Cocoa Bindings, and desktop to mobile interoperability.</li>
+    <li><strong>Technical Training</strong> — An experienced public speaker, <a href="#writing">writer</a>, and educator.</li>
+    <li><strong>Web Services</strong> — A mid-level developer with a focus on API design using Javascript and Node.js.</li>
+    <li><strong>Product Design</strong> — A keen eye for crafting great user experiences and using data analysis to verify and validate goals.</li>
+  </ul>
+</section>
+
+<!-- ============================== CARD 5 — Projects ============================== -->
+
+<section id="projects" class="pf-section">
+  <h2 class="section-label">Projects</h2>
+  <div class="projects-grid">
+    <div class="project-card">
+      <h3><a href="https://github.com/justin/Achieving-Zen-With-Auto-Layout/">Achieving Zen With Auto Layout (2nd Edition)</a></h3>
+      <p>The 2nd edition of my Auto Layout book has been freshly updated to cover all the new layout features in iOS 9. I also took the opportunity to update all the sample code and related projects to use Swift 2.0.</p>
+    </div>
+    <div class="project-card">
+      <h3><a href="https://vimeo.com/137550517">Mastering Auto Layout</a></h3>
+      <p>I gave a talk at 360iDev 2015 about the new features and functionality in Auto Layout for iOS 9. Consider it the cliffs notes version of the book.</p>
+    </div>
+    <div class="project-card">
+      <h3><a href="https://github.com/rentzch/mogenerator">mogenerator</a></h3>
+      <p>Commit access to popular open source project to automatically convert a Core Data model to source code. Recently spearheaded releases to add support for Objective-C lightweight generics and nullability attributes. Lead work on updating to Swift 2.0 and in-progress to re-architect generator to produce more Swift-centric source code.</p>
+    </div>
+    <div class="project-card">
+      <h3><a href="https://justinw.me/cocoaradio">CocoaRadio Archives</a></h3>
+      <p>Though some of the content is a bit dated, I am still proud of the quality and content of the podcast I produced in 2014.</p>
+    </div>
+  </div>
+</section>

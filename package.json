@@ -1,9 +1,9 @@
 {
   "name": "carpeaqua",
   "description": "The current carpeaqua Ghost template",
-  "version": "4.0.1",
+  "version": "5.0.0",
   "engines": {
-    "ghost": ">=5.0.0"
+    "ghost": ">=6.38.0"
   },
   "license": "MIT",
   "scripts": {
@@ -31,7 +31,7 @@
     "@tailwindcss/postcss": "^4.2.1",
     "autoprefixer": "^10.4.27",
     "cssnano": "^7.1.2",
-    "gscan": "^5.2.5",
+    "gscan": "^6.4.2",
     "gulp": "^5.0.1",
     "gulp-clean-css": "^4.3.0",
     "gulp-concat": "^2.6.1",
@@ -49,6 +49,12 @@
   },
   "config": {
     "posts_per_page": 5,
-    "card_assets": true
+    "card_assets": true,
+    "custom": {
+      "github_url": {
+        "type": "text",
+        "default": "https://github.com/justin"
+      }
+    }
   }
 }
