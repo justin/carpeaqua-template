@@ -107,20 +107,28 @@ attributes on each `<section>` intact.
 
 ### Images
 
-All nine images are already wired into the reference content and referenced at
-`/content/images/portfolio/`:
+All nine images are already wired into the reference content, uploaded to
+production, and referenced by their real `storage.ghost.io` URLs:
 
 | File | Used by |
 |------|---------|
 | `justin-williams.jpg` | Hero photo (card 1) |
 | `purdue.jpg` | Education (card 3) |
-| `logo-spatial.jpg`, `logo-pff.jpg`, `logo-neurotrack.jpg`, `logo-ted.jpg`, `logo-hipstamatic.jpg`, `logo-hoteltonight.jpg`, `logo-second-gear.jpg` | Career timeline (card 2), in that order |
+| `logo-spatial.png`, `logo-pff.png`, `logo-neurotrack.png`, `logo-ted.png`, `logo-hipstamatic.png`, `logo-hoteltonight.png`, `logo-secondgear.png` | Career timeline (card 2), in that order |
 
-**Locally** they're served from `.devcontainer/server/images/portfolio/`, which
-the devcontainer bind-mounts as Ghost's `content/images`. Nothing to upload.
+There's no Admin API way to upload straight to an arbitrary path like
+`/content/images/portfolio/` — the upload endpoint always assigns a
+`/content/images/<year>/<month>/` path — so the `src` values in card 1–3 are
+absolute `storage.ghost.io` URLs rather than theme-relative ones. Being
+absolute, they render the same in any environment (local or production);
+nothing needs uploading per-environment.
 
-**On production** they have to be uploaded to the same `/content/images/portfolio/`
-path, or the `src` values in card 1–3 need updating to wherever they land.
+The originals still live in `.devcontainer/server/images/portfolio/` for
+reference. If they're ever reprocessed or replaced, re-upload with
+`node scripts/upload-portfolio-images.mjs` (requires a production Admin API
+key and `GHOST_URL=https://carpeaqua.ghost.io` — not the `carpeaqua.com`
+custom domain, which 302s and breaks the POST — in `.env.local`) and update
+the `src` values in `docs/home-page-content.html` to the URLs it prints.
 
 The originals were pre-processed rather than used as-is: the hero shot is cropped
 to head-and-shoulders (the original is a restaurant photo including the table),
