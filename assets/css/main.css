@@ -474,6 +474,22 @@ Version: 2.0
   .contact-form__row {
     @apply flex flex-wrap gap-5;
   }
+
+  .form-error {
+    @apply font-sans text-xs font-semibold text-red-600 empty:hidden;
+  }
+
+  .contact-form__status {
+    @apply empty:hidden rounded-md px-3 py-2.5 font-sans text-sm font-semibold;
+  }
+
+  .contact-form__status--success {
+    @apply text-green-700;
+  }
+
+  .contact-form__status--error {
+    @apply text-red-600;
+  }
 }
 
 @layer utilities {
