@@ -15,9 +15,14 @@
   - Handlebars helpers ({{asset}}, {{url}}, …) do not run inside page content. Image src
     values must be real paths under /content/images/, not theme asset references.
 
-  The images referenced below live at /content/images/portfolio/. Locally they are served
-  out of .devcontainer/server/images/portfolio/ via the devcontainer bind mount. On
-  production they need to be uploaded to the same path before this content will render.
+  The images referenced below are already uploaded to production and use their real
+  storage.ghost.io URLs — Ghost's Admin API upload endpoint doesn't preserve arbitrary
+  paths like /content/images/portfolio/, it always assigns a /content/images/<year>/<month>/
+  path, so these URLs are absolute rather than theme-relative. They work in any
+  environment (local or production) since they're served from Ghost's CDN. The originals
+  still live in .devcontainer/server/images/portfolio/ for reference if they ever need
+  reprocessing (see the cropping/letterboxing note below) or re-uploading — re-upload with
+  scripts/upload-portfolio-images.mjs and update the URLs below if that happens.
 
   home.hbs renders this page's content inside a .portfolio-container, followed by three
   theme-owned sections: "Essays & Writing" (latest 5 posts, pulled live), the Subscribe
@@ -45,7 +50,7 @@
     </ul>
   </div>
   <div class="hero__photo">
-    <img src="/content/images/portfolio/justin-williams.jpg" alt="Justin Williams" />
+    <img src="https://storage.ghost.io/c/93/30/93302d8c-df65-445d-9422-99c3d0ca0880/content/images/2026/08/justin-williams.jpg" alt="Justin Williams" />
   </div>
 </section>
 
@@ -57,7 +62,7 @@
   <div class="timeline">
     <div class="timeline__item">
       <div class="timeline__rail">
-        <div class="timeline__logo"><img src="/content/images/portfolio/logo-spatial.png" alt="Spatial logo" /></div>
+        <div class="timeline__logo"><img src="https://storage.ghost.io/c/93/30/93302d8c-df65-445d-9422-99c3d0ca0880/content/images/2026/08/logo-spatial.png" alt="Spatial logo" /></div>
         <div class="timeline__connector"></div>
       </div>
       <div class="timeline__content">
@@ -68,7 +73,7 @@
 
     <div class="timeline__item">
       <div class="timeline__rail">
-        <div class="timeline__logo"><img src="/content/images/portfolio/logo-pff.png" alt="Pro Football Focus logo" /></div>
+        <div class="timeline__logo"><img src="https://storage.ghost.io/c/93/30/93302d8c-df65-445d-9422-99c3d0ca0880/content/images/2026/08/logo-pff.png" alt="Pro Football Focus logo" /></div>
         <div class="timeline__connector"></div>
       </div>
       <div class="timeline__content">
@@ -80,7 +85,7 @@
 
     <div class="timeline__item">
       <div class="timeline__rail">
-        <div class="timeline__logo"><img src="/content/images/portfolio/logo-neurotrack.png" alt="Neurotrack logo" /></div>
+        <div class="timeline__logo"><img src="https://storage.ghost.io/c/93/30/93302d8c-df65-445d-9422-99c3d0ca0880/content/images/2026/08/logo-neurotrack.png" alt="Neurotrack logo" /></div>
         <div class="timeline__connector"></div>
       </div>
       <div class="timeline__content">
@@ -92,7 +97,7 @@
 
     <div class="timeline__item">
       <div class="timeline__rail">
-        <div class="timeline__logo"><img src="/content/images/portfolio/logo-ted.png" alt="TED logo" /></div>
+        <div class="timeline__logo"><img src="https://storage.ghost.io/c/93/30/93302d8c-df65-445d-9422-99c3d0ca0880/content/images/2026/08/logo-ted.png" alt="TED logo" /></div>
         <div class="timeline__connector"></div>
       </div>
       <div class="timeline__content">
@@ -104,7 +109,7 @@
 
     <div class="timeline__item">
       <div class="timeline__rail">
-        <div class="timeline__logo"><img src="/content/images/portfolio/logo-hipstamatic.png" alt="Hipstamatic logo" /></div>
+        <div class="timeline__logo"><img src="https://storage.ghost.io/c/93/30/93302d8c-df65-445d-9422-99c3d0ca0880/content/images/2026/08/logo-hipstamatic.png" alt="Hipstamatic logo" /></div>
         <div class="timeline__connector"></div>
       </div>
       <div class="timeline__content">
@@ -115,7 +120,7 @@
 
     <div class="timeline__item">
       <div class="timeline__rail">
-        <div class="timeline__logo"><img src="/content/images/portfolio/logo-hoteltonight.png" alt="HotelTonight logo" /></div>
+        <div class="timeline__logo"><img src="https://storage.ghost.io/c/93/30/93302d8c-df65-445d-9422-99c3d0ca0880/content/images/2026/08/logo-hoteltonight.png" alt="HotelTonight logo" /></div>
         <div class="timeline__connector"></div>
       </div>
       <div class="timeline__content">
@@ -126,7 +131,7 @@
 
     <div class="timeline__item">
       <div class="timeline__rail">
-        <div class="timeline__logo"><img src="/content/images/portfolio/logo-secondgear.png" alt="Second Gear logo" /></div>
+        <div class="timeline__logo"><img src="https://storage.ghost.io/c/93/30/93302d8c-df65-445d-9422-99c3d0ca0880/content/images/2026/08/logo-secondgear.png" alt="Second Gear logo" /></div>
       </div>
       <div class="timeline__content">
         <h3 class="timeline__role">Second Gear</h3>
@@ -145,7 +150,7 @@
 
 <section id="education" class="pf-section education">
   <div class="education__photo">
-    <img src="/content/images/portfolio/purdue.jpg" alt="Purdue University bell tower" />
+    <img src="https://storage.ghost.io/c/93/30/93302d8c-df65-445d-9422-99c3d0ca0880/content/images/2026/08/purdue.jpg" alt="Purdue University bell tower" />
   </div>
   <div>
     <h2 class="section-label">Education</h2>
