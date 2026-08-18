@@ -40,29 +40,39 @@
     <h2 class="section-label">Contact Me</h2>
     <p>Please use this form if you would like to get in touch with me in regards to <strong>hiring me</strong>, inviting me to speak at your company or event, or anything else. I'll do my best to get back to you within seventy-two hours.</p>
 
-    {{!-- No submission backend is wired up yet — set `action` and `method` once
-          a handler (Formspree, a serverless endpoint, etc.) has been picked. --}}
-    <form class="contact-form">
+    <form id="contact-form" class="contact-form" action="https://formspree.io/f/mrpzolqp" method="POST">
+      {{!-- Honeypot: left blank by real visitors, catches basic bots. --}}
+      <input type="text" name="_gotcha" tabindex="-1" autocomplete="off" style="display:none" />
       <div class="contact-form__row">
         <label class="form-field">
           <span class="form-label">Name</span>
-          <input class="form-input" type="text" name="name" required />
+          <input class="form-input" type="text" name="name" data-fs-field required />
         </label>
         <label class="form-field">
           <span class="form-label">Email</span>
-          <input class="form-input" type="email" name="email" required />
+          <input class="form-input" type="email" name="email" data-fs-field required />
+          <span class="form-error" data-fs-error="email"></span>
         </label>
       </div>
       <label class="form-field">
         <span class="form-label">Subject</span>
-        <input class="form-input" type="text" name="subject" />
+        <input class="form-input" type="text" name="subject" data-fs-field />
       </label>
       <label class="form-field">
         <span class="form-label">Message</span>
-        <textarea class="form-textarea" name="message" rows="5" required></textarea>
+        <textarea class="form-textarea" name="message" rows="5" data-fs-field required></textarea>
+        <span class="form-error" data-fs-error="message"></span>
       </label>
-      <button class="btn-primary" type="submit">Send</button>
+      <div class="contact-form__status contact-form__status--success" data-fs-success></div>
+      <div class="contact-form__status contact-form__status--error" data-fs-error></div>
+      <button class="btn-primary" type="submit" data-fs-submit-btn>Send</button>
     </form>
+
+    <script>
+      window.formspree = window.formspree || function () { (formspree.q = formspree.q || []).push(arguments); };
+      formspree('initForm', { formElement: '#contact-form', formId: 'mrpzolqp' });
+    </script>
+    <script src="https://unpkg.com/@formspree/ajax@1" defer></script>
   </section>
 
 </div>
