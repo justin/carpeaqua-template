@@ -5,6 +5,7 @@ set -eux
 echo "[setup_container] Starting container setup..."
 
 npm install -g ghost-cli@latest
+npm install -g @anthropic-ai/claude-code @openai/codex
 mkdir -p /home/node/ghost
 sudo chown -R node:node /home/node/ghost
 cd /home/node/ghost

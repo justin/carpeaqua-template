@@ -27,6 +27,10 @@ in place. The theme still has to be *activated* once, since a fresh
 
 **Settings → Design & branding → Change theme → carpeaqua → Activate.**
 
+For cloud development work, the devcontainer also preconfigures AI tooling:
+VS Code recommends GitHub Copilot, Claude Code, and OpenAI Codex extensions, and
+`post_create.sh` installs the `claude` and `codex` CLIs globally in the container.
+
 **Production (Ghost Pro):** build a zip and upload it under the same menu.
 
 ```bash

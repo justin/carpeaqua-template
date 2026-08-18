@@ -21,7 +21,11 @@
         "lifeart.vscode-glimmer-syntax",
         "TryGhost.ghost",
         "bradlc.vscode-tailwindcss",
-        "github.vscode-github-actions"
+        "github.vscode-github-actions",
+        "GitHub.copilot",
+        "GitHub.copilot-chat",
+        "anthropic.claude-code",
+        "openai.chatgpt"
       ]
     }
   },

@@ -6,6 +6,10 @@
     "EditorConfig.EditorConfig",
     "lifeart.vscode-glimmer-syntax",
     "TryGhost.ghost",
-    "bradlc.vscode-tailwindcss"
+    "bradlc.vscode-tailwindcss",
+    "GitHub.copilot",
+    "GitHub.copilot-chat",
+    "anthropic.claude-code",
+    "openai.chatgpt"
   ]
 }
