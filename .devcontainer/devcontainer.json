@@ -20,7 +20,8 @@
         "EditorConfig.EditorConfig",
         "lifeart.vscode-glimmer-syntax",
         "TryGhost.ghost",
-        "bradlc.vscode-tailwindcss"
+        "bradlc.vscode-tailwindcss",
+        "github.vscode-github-actions"
       ]
     }
   },
