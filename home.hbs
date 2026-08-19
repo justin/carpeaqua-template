@@ -19,7 +19,13 @@
         <div class="post-card">
           <a href="{{url}}" class="post-card__title">{{title}}</a>
           <time class="post-card__meta" datetime="{{date format="YYYY-MM-DD"}}">{{date format="MMMM D, YYYY"}}{{#if primary_tag}} &middot; {{primary_tag.name}}{{/if}}</time>
-          <p class="post-card__excerpt">{{excerpt characters="140"}}</p>
+          <p class="post-card__excerpt">
+            {{#if custom_excerpt}}
+              {{custom_excerpt}}
+            {{else}}
+              {{excerpt characters="140"}}
+            {{/if}}
+          </p>
         </div>
         {{/foreach}}
       {{/get}}
