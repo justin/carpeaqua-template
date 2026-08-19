@@ -49,9 +49,11 @@ function bundle() {
   var themeName = require('./package.json').name;
   var filename = themeName + '.zip';
 
-  // Everything Ghost needs to render the theme, and nothing else. Local-only
-  // tooling (scripts/, docs/) is deliberately excluded — Ghost ignores it, and
-  // it would otherwise ship the Admin API client to production.
+  // Everything Ghost needs to render the theme, and nothing else. Dotfiles
+  // (.devcontainer/, .vscode/, .github/, etc.) are already excluded by
+  // dot: false below. Local-only tooling and dev artifacts are excluded
+  // explicitly — Ghost ignores all of it, and some (scripts/, the Admin API
+  // client) shouldn't ship to production at all.
   return src([
     '**',
     '!Brewfile*',
@@ -60,7 +62,15 @@ function bundle() {
     '!production', '!production/**',
     '!scripts', '!scripts/**',
     '!docs', '!docs/**',
-    '!server', '!server/**'
+    '!server', '!server/**',
+    '!AGENTS.md',
+    '!package-lock.json',
+    '!screenshot.png',
+    // Only assets/built/ is ever loaded via {{asset}}; assets/css/ and
+    // assets/images/ are build inputs, and the CSS sourcemap is dev-only.
+    '!assets/css', '!assets/css/**',
+    '!assets/images', '!assets/images/**',
+    '!assets/built/*.map'
   ], { dot: false })
     .pipe(zip(filename))
     .pipe(dest('./production/'))

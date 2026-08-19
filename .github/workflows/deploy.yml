@@ -16,3 +16,9 @@ jobs:
           api-url: ${{ secrets.GHOST_ADMIN_API_URL }}
           api-key: ${{ secrets.GHOST_ADMIN_API_KEY }}
           version: v5.0
+          # Ghost never reads AGENTS.md/routes.yaml/redirects.yaml/node_modules
+          # from a theme zip, so the action already excludes those by default.
+          # Everything below is repo-local tooling and dev artifacts that
+          # Ghost doesn't need either — see Gulpfile.js's `bundle` task, which
+          # excludes the same set for `npm run zip`.
+          exclude: "docs* scripts* .devcontainer* .vscode* Gulpfile.js package-lock.json screenshot.png assets/css* assets/images* *.map *.DS_Store"
