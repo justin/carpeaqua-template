@@ -1,4 +1,4 @@
 301:
-  /rss/: /blog/rss/
+  ^/rss/$: /blog/rss/
 
 302:
