@@ -88,4 +88,5 @@ const dev = series(build, watcher)
 const production = series(build, bundle)
 
 exports.default = dev
+exports.build = build
 exports.production = production

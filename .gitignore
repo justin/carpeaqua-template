@@ -26,6 +26,12 @@ jspm_packages
 # macOS
 .DS_Store
 
+# Build output. Gulp regenerates all of it from assets/css/ and assets/images/,
+# so it is reproducible and does not belong in history — and committing binaries
+# here is how a run of corrupt PNGs got recorded in the first place. Anything
+# that consumes the theme has to run `npm run build` first; CI does.
+assets/built
+
 # Don't commit a local deployment.
 server
 production

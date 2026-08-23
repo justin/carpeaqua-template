@@ -1,8 +1,8 @@
 # Setting up the carpeaqua theme in Ghost
 
-Everything Ghost-side that this theme needs. Steps 1–2 are the ones that have to
-happen for the site to work at all; the rest is configuration you can do in any
-order afterwards.
+Everything Ghost-side that this theme needs. Step 0 and steps 1–2 are the ones
+that have to happen for the site to work at all; the rest is configuration you
+can do in any order afterwards.
 
 Requires **Ghost 6.38.0 or later** — the footer uses the `{{#social_accounts}}`
 helper, which does not exist before that version.
@@ -16,25 +16,40 @@ are one-time setup steps, so the UI is the path.
 
 ---
 
+## 0. Build first
+
+`assets/built/` is generated and gitignored, so a fresh clone has no CSS, no
+JavaScript and no images until you build:
+
+```bash
+npm ci && npm run build
+```
+
+Everything below assumes that has been run. `npm run dev` does the same build and
+then watches `assets/css/` and `assets/images/` for changes.
+
 ## 1. Install the theme
 
 **Locally (devcontainer):** nothing to upload. `.devcontainer/devcontainer.json`
 bind-mounts the repository straight into
 `/home/node/ghost/content/themes/carpeaqua-template`, so Ghost already sees the
-working tree — edits to `.hbs` files show up on reload, and `gulp` rebuilds CSS
-in place. The theme still has to be *activated* once, since a fresh
-`ghost install local` starts on Casper:
+working tree — edits to `.hbs` files show up on reload, and `npm run dev`
+rebuilds CSS and images in place. The theme still has to be *activated* once,
+since a fresh `ghost install local` starts on Casper:
 
 **Settings → Design & branding → Change theme → carpeaqua → Activate.**
 
-**Production (Ghost Pro):** build a zip and upload it under the same menu.
+**Production (Ghost Pro):** pushing to `main` deploys automatically —
+`.github/workflows/deploy.yml` builds the assets and uploads the theme through
+the Admin API. To do it by hand instead, build a zip and upload it under the same
+menu:
 
 ```bash
 npm run zip
 ```
 
-That writes `production/carpeaqua.zip` — templates, built assets, partials,
-`package.json`, and `routes.yaml`. Local-only tooling (`scripts/`, `docs/`,
+That builds and then writes `production/carpeaqua.zip` — templates, built assets,
+partials, `package.json`, and `routes.yaml`. Repo-local tooling (`docs/`,
 `.devcontainer/`, `.env.local`) is excluded, so nothing local ships to
 production.
 
@@ -75,8 +90,7 @@ section whatever gets added above it.
 The nav links in the site header point at the anchors above, so keep the `id`
 attributes on each `<section>` intact.
 
-Editing any of this is a code change plus a redeploy (`npm run zip`, then upload),
-not a Ghost Admin edit. In exchange, Tailwind utility classes and Handlebars
+Editing any of this is a code change and a deploy, not a Ghost Admin edit. In exchange, Tailwind utility classes and Handlebars
 helpers both work — neither does inside page content stored in Ghost's database,
 because Tailwind only scans the theme's own files at build time and Ghost does not
 evaluate helpers in post or page HTML.
@@ -170,6 +184,9 @@ library binds to for inline validation and the success and error messages. The
 `<form action>` is a plain Formspree endpoint, so if the script fails to load the
 form still submits as a normal POST and Formspree renders its own confirmation
 page. A hidden `_gotcha` field catches basic bots.
+
+Changing the destination means editing both the `action` attribute and the
+`formId` in the inline `formspree('initForm', …)` call — they have to match.
 
 ## 8. Verify
 

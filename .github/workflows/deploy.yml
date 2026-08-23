@@ -10,6 +10,18 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
+      - name: Setup Node.js
+        uses: actions/setup-node@v5
+        with:
+          node-version: "22"
+          cache: "npm"
+      - name: Install dependencies
+        run: npm ci
+      # assets/built/ is gitignored, so the checkout has no CSS, JS or images
+      # in it. The deploy action zips the working directory as-is and runs no
+      # build of its own — without this step it would ship an unstyled theme.
+      - name: Build assets
+        run: npm run build
       - name: Deploy Ghost Theme
         uses: TryGhost/action-deploy-theme@v2
         with:
