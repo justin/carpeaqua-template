@@ -8,6 +8,7 @@
   "license": "MIT",
   "scripts": {
     "dev": "gulp",
+    "build": "gulp build",
     "test": "gscan .",
     "test:ci": "gscan --fatal --verbose .",
     "zip": "gulp production"

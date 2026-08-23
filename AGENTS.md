@@ -2,7 +2,7 @@
 
 ## Project Structure & Module Organization
 
-This repository contains the `carpeaqua` theme for Ghost 5 and later. Top-level Handlebars templates (`default.hbs`, `index.hbs`, `post.hbs`, `page.hbs`, and `error.hbs`) define page layouts. Reusable template fragments live in `partials/`. Edit Tailwind source styles in `assets/css/main.css` and source images in `assets/images/`; Gulp writes deployable files to `assets/built/`. Keep built assets in sync with their sources. Local Ghost data under `.devcontainer/server/` and packaged themes under `production/` are ignored.
+This repository contains the `carpeaqua` theme for Ghost 5 and later. Top-level Handlebars templates (`default.hbs`, `index.hbs`, `post.hbs`, `page.hbs`, and `error.hbs`) define page layouts. Reusable template fragments live in `partials/`. Edit Tailwind source styles in `assets/css/main.css` and source images in `assets/images/`; Gulp writes deployable files to `assets/built/`, which is generated and gitignored — never commit it, and run `npm run build` after cloning or the theme renders unstyled. Local Ghost data under `.devcontainer/server/` and packaged themes under `production/` are ignored.
 
 ## Build, Test, and Development Commands
 
@@ -20,7 +20,7 @@ Follow `.editorconfig`: UTF-8, LF endings, spaces, two-space indentation, and no
 
 ## Testing Guidelines
 
-There is no unit-test or coverage suite. Treat `gscan` as the required automated check and run `npm run test:ci` before submitting changes. For layout or styling changes, also activate the theme in local Ghost and verify the index, post, pagination, error, light-mode, and dark-mode views as applicable. Rebuild and inspect `assets/built/` after changing CSS, images, or Prism configuration.
+There is no unit-test or coverage suite. Treat `gscan` as the required automated check and run `npm run test:ci` before submitting changes. For layout or styling changes, also activate the theme in local Ghost and verify the index, post, pagination, error, light-mode, and dark-mode views as applicable. Rebuild and inspect `assets/built/` after changing CSS, images, or Prism configuration. Verify binary assets survive the build (`file assets/built/**/*.png`) rather than trusting that a copy task copied them.
 
 ## Commit & Pull Request Guidelines
 
