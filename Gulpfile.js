@@ -40,8 +40,11 @@ function javascript() {
     .pipe(dest("./assets/built/"), { sourcemaps: '.' });
 }
 
+// encoding: false is required. gulp 5's src() decodes files as UTF-8 unless told
+// otherwise, which rewrites every byte outside the ASCII range to U+FFFD and
+// silently destroys PNGs and JPEGs on the way through.
 function images() {
-  return src('./assets/images/**/*')
+  return src('./assets/images/**/*', { encoding: false })
     .pipe(dest("./assets/built/"))
 }
 
@@ -71,7 +74,7 @@ function bundle() {
     '!assets/css', '!assets/css/**',
     '!assets/images', '!assets/images/**',
     '!assets/built/*.map'
-  ], { dot: false })
+  ], { dot: false, encoding: false })
     .pipe(zip(filename))
     .pipe(dest('./production/'))
 }
