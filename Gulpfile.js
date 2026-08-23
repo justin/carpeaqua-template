@@ -54,9 +54,9 @@ function bundle() {
 
   // Everything Ghost needs to render the theme, and nothing else. Dotfiles
   // (.devcontainer/, .vscode/, .github/, etc.) are already excluded by
-  // dot: false below. Local-only tooling and dev artifacts are excluded
-  // explicitly — Ghost ignores all of it, and some (scripts/, the Admin API
-  // client) shouldn't ship to production at all.
+  // dot: false below; repo-local tooling and dev artifacts are excluded
+  // explicitly. scripts/ is empty today but stays in the list so anything
+  // added there later doesn't ship to production by accident.
   return src([
     '**',
     '!Brewfile*',

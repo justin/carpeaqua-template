@@ -1,8 +1,8 @@
 # Setting up the carpeaqua theme in Ghost
 
-Everything Ghost-side that this theme needs. Steps 1–3 are the ones that have to
-happen for the site to work at all; 4–7 are configuration you can do in any order
-afterwards.
+Everything Ghost-side that this theme needs. Steps 1–2 are the ones that have to
+happen for the site to work at all; the rest is configuration you can do in any
+order afterwards.
 
 Requires **Ghost 6.38.0 or later** — the footer uses the `{{#social_accounts}}`
 helper, which does not exist before that version.
@@ -53,87 +53,68 @@ routing. What's missing without `routes.yaml` is the paginated post archive —
 `/blog/` returns 404, and the only way to reach posts is the five-item writing
 grid on the homepage or a direct post URL.
 
-## 3. Create the `home` Page
+## 3. Homepage content
 
-1. **Pages → New page**.
-2. Title it `Home`. The title is never rendered on the front end — `home.hbs`
-   pulls only the page's content — but Ghost requires one.
-3. Open the settings sidebar (gear icon) and set the **Page URL** slug to
-   exactly `home`. This is what `home.hbs` filters on; any other slug and the
-   homepage falls back to its "create a Page with the slug home" message.
-4. Set **Publish** when you're done editing — a draft page won't be found by the
-   `{{#get}}` query.
+Nothing to do in Ghost. The portfolio sections live in the theme, one partial per
+section under `partials/home/`:
 
-### Adding the content, one card per section
+| Partial | Section | Anchor |
+|---------|---------|--------|
+| `hero.hbs` | Hello / about | `#about` |
+| `career.hbs` | Career Stops | `#career` |
+| `education.hbs` | Education | `#education` |
+| `skills.hbs` | Technical Prowess | `#skills` |
+| `projects.hbs` | Projects | `#projects` |
 
-[`docs/home-page-content.html`](home-page-content.html) is divided into five
-blocks marked `CARD 1` through `CARD 5`. Each goes into its own HTML card, in
-order:
+[`home.hbs`](../home.hbs) includes those in order, then appends three more
+sections: **Essays & Writing** (the latest five posts, pulled live), the
+**Subscribe CTA**, and **Contact** (`#contact`). Contact is kept inline in
+`home.hbs` rather than extracted into a partial so that it stays the final
+section whatever gets added above it.
 
-| Card | Section | Anchor |
-|------|---------|--------|
-| 1 | Hero / About | `#about` |
-| 2 | Career Stops | `#career` |
-| 3 | Education | `#education` |
-| 4 | Technical Prowess | `#skills` |
-| 5 | Projects | `#projects` |
-
-Below these, `home.hbs` appends three theme-owned sections: **Essays & Writing**,
-the **Subscribe CTA**, and **Contact** (`#contact`). Contact is deliberately in
-the theme rather than the Page so it is always the final section, whatever gets
-added to the Page later. Don't add a contact card to the Page — you'd get two.
-
-To add each one: on a new line in the editor, press `/`, type `html`, hit enter,
-then paste that card's block (everything after its `CARD n` comment, up to the
-next one). Press escape, then repeat on the next line.
-
-Rendered output is byte-identical to pasting all six into a single card. The
-reason to split them is editing: changing a job title later means opening one
-short card instead of scrolling through 200 lines of markup.
-
-The nav links in the site header point at these anchors, so keep the `id`
+The nav links in the site header point at the anchors above, so keep the `id`
 attributes on each `<section>` intact.
 
-### Two things that don't work inside page content
+Editing any of this is a code change plus a redeploy (`npm run zip`, then upload),
+not a Ghost Admin edit. In exchange, Tailwind utility classes and Handlebars
+helpers both work — neither does inside page content stored in Ghost's database,
+because Tailwind only scans the theme's own files at build time and Ghost does not
+evaluate helpers in post or page HTML.
 
-- **Tailwind utility classes.** Tailwind scans the theme's source files at build
-  time; it never sees content stored in Ghost's database. Typing `flex gap-4`
-  into a card produces no CSS. Use only the semantic classnames already defined
-  in [`assets/css/main.css`](../assets/css/main.css) — `hero`, `timeline__item`,
-  `project-card`, `skills-list`, and so on. If you need something new, add it to
-  `main.css` and rebuild the theme.
-- **Handlebars helpers.** `{{asset}}`, `{{url}}`, and friends are not evaluated
-  in page content. Images need real absolute URLs.
+### Career timeline
+
+The seven entries share their markup, so they go through a block partial. Each
+call passes the logo and headings as hash params and the prose as the block:
+
+```handlebars
+{{#> "home/timeline-item" logo="built/portfolio/logo-ted.png" company="TED" role="Mobile Development Lead"}}
+  <p>Led development of visual redesign that shipped in June 2018. …</p>
+{{/"home/timeline-item"}}
+```
+
+`role` is optional (Second Gear has none). The connecting rail is emitted for
+every entry — `.timeline__item:last-child .timeline__connector` hides it in CSS —
+so appending a new job is one block, with nothing to adjust on the entry above it.
 
 ### Images
 
-All nine images are already wired into the reference content, uploaded to
-production, and referenced by their real `storage.ghost.io` URLs:
+The nine portfolio images are theme assets, referenced with `{{asset}}`. Sources
+live in `assets/images/portfolio/` and `gulp images` copies them to
+`assets/built/portfolio/`, which is what ships in the zip:
 
 | File | Used by |
 |------|---------|
-| `justin-williams.jpg` | Hero photo (card 1) |
-| `purdue.jpg` | Education (card 3) |
-| `logo-spatial.png`, `logo-pff.png`, `logo-neurotrack.png`, `logo-ted.png`, `logo-hipstamatic.png`, `logo-hoteltonight.png`, `logo-secondgear.png` | Career timeline (card 2), in that order |
+| `justin-williams.jpg` | Hero photo |
+| `purdue.jpg` | Education |
+| `logo-spatial.png`, `logo-pff.png`, `logo-neurotrack.png`, `logo-ted.png`, `logo-hipstamatic.png`, `logo-hoteltonight.png`, `logo-secondgear.png` | Career timeline, in that order |
 
-There's no Admin API way to upload straight to an arbitrary path like
-`/content/images/portfolio/` — the upload endpoint always assigns a
-`/content/images/<year>/<month>/` path — so the `src` values in card 1–3 are
-absolute `storage.ghost.io` URLs rather than theme-relative ones. Being
-absolute, they render the same in any environment (local or production);
-nothing needs uploading per-environment.
-
-The originals still live in `.devcontainer/server/images/portfolio/` for
-reference. If they're ever reprocessed or replaced, re-upload with
-`node scripts/upload-portfolio-images.mjs` (requires a production Admin API
-key and `GHOST_URL=https://carpeaqua.ghost.io` — not the `carpeaqua.com`
-custom domain, which 302s and breaks the POST — in `.env.local`) and update
-the `src` values in `docs/home-page-content.html` to the URLs it prints.
+They are not uploaded to Ghost and there is nothing to wire up per-environment —
+`{{asset}}` resolves against whatever host is serving the theme.
 
 The originals were pre-processed rather than used as-is: the hero shot is cropped
 to head-and-shoulders (the original is a restaurant photo including the table),
 and each logo is letterboxed onto a square white canvas. That last part matters —
-`.timeline__logo` is a 56px circle with `object-cover`, so a wide mark like TED's
+`.timeline__logo` is a 72px circle with `object-cover`, so a wide mark like TED's
 or PFF's would otherwise be cropped to an unreadable sliver, and a black logo on
 transparency would vanish in dark mode.
 
@@ -180,17 +161,21 @@ access** set to something other than "Nobody". No external service, no backend.
 
 ## 7. Contact form
 
-The form lives in [`home.hbs`](../home.hbs) and ships with **no `action`
-attribute** — submitting it currently does nothing. Before publishing, pick a
-handler (Formspree, a `mailto:`, a serverless endpoint) and set `action` and
-`method` on the `<form>` accordingly. Being in the theme rather than the Page,
-this is a code change, not a Ghost Admin one.
+The form lives in [`home.hbs`](../home.hbs) and posts to **Formspree**, form ID
+`mrpzolqp`. Nothing to configure in Ghost — no backend, no Ghost setting.
+
+Submissions go through `@formspree/ajax`, loaded from unpkg, so the page does not
+navigate away on submit; the `data-fs-*` attributes on the fields are what that
+library binds to for inline validation and the success and error messages. The
+`<form action>` is a plain Formspree endpoint, so if the script fails to load the
+form still submits as a normal POST and Formspree renders its own confirmation
+page. A hidden `_gotcha` field catches basic bots.
 
 ## 8. Verify
 
-- `/` shows the portfolio with your hero photo and the career timeline — not the
-  "Create a Page in Ghost Admin with the slug home" fallback. That fallback means
-  the page is missing, still a draft, or on a different slug.
+- `/` shows the portfolio: hero, career timeline, education, skills, projects.
+  These are theme partials, so they can't go missing the way page content could;
+  broken images mean `assets/built/portfolio/` didn't make it into the zip.
 - `/blog/` returns 200 and shows the post index with pagination → routes.yaml
   took effect. A 404 here means it wasn't uploaded.
 - Career timeline shows seven logos, each centred in its circle.

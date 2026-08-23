@@ -1,0 +1,18 @@
+{{!-- One entry in the career timeline. Prose is passed as the partial block:
+
+      {{#> "home/timeline-item" logo="built/portfolio/logo-ted.png" company="TED" role="Mobile Development Lead"}}
+        <p>…</p>
+      {{/"home/timeline-item"}}
+
+      "role" is optional. The connector is emitted for every item; .timeline__item:last-child
+      hides it in CSS, so there is nothing to remember when appending a new entry. --}}
+<div class="timeline__item">
+  <div class="timeline__rail">
+    <div class="timeline__logo"><img src="{{asset logo}}" alt="{{company}} logo" /></div>
+    <div class="timeline__connector"></div>
+  </div>
+  <div class="timeline__content">
+    <h3 class="timeline__role">{{company}}{{#if role}} <span class="timeline__role-meta">— {{role}}</span>{{/if}}</h3>
+    {{> @partial-block}}
+  </div>
+</div>
